@@ -1,0 +1,267 @@
+/* Login */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.auth-container {
+  max-width: 450px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  transition: opacity 0.5s ease-in-out;
+}
+.form-hidden {
+  display: none;
+  opacity: 0;
+}
+.form-active {
+  display: block;
+  opacity: 1;
+}
+.form-control:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 0.25rem rgba(79, 70, 229, 0.25);
+}
+.btn-primary {
+  background-color: #4f46e5;
+  border-color: #4f46e5;
+}
+.btn-primary:hover {
+  background-color: #4338ca;
+  border-color: #4338ca;
+}
+.text-indigo-600 {
+  color: #4f46e5;
+}
+.text-indigo-600:hover {
+  color: #4338ca;
+}
+.custom-checkbox .form-check-input:checked {
+  background-color: #4f46e5;
+  border-color: #4f46e5;
+}
+/* 
+
+
+
+/* */
+/* Base font */
+body {
+  font-family: "Inter", sans-serif;
+}
+
+/* Custom Utilities */
+.hover-green:hover {
+  color: #16a34a !important;
+}
+
+.hover-white:hover {
+  color: #fff !important;
+}
+
+.hover-up {
+  transition: transform 0.3s ease;
+}
+.hover-up:hover {
+  transform: translateY(-5px);
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-zoom {
+  overflow: hidden;
+}
+.hover-zoom img {
+  transition: transform 0.5s ease;
+}
+.hover-zoom:hover img {
+  transform: scale(1.05);
+}
+
+.hover-rotate {
+  transition: transform 0.5s ease;
+}
+.hover-rotate:hover {
+  transform: rotate(0deg) !important;
+}
+
+/* Product Card Specifics */
+.product-card .card-img-top {
+  transition: transform 0.5s ease;
+  height: 250px;
+  object-fit: cover;
+}
+.product-card:hover .card-img-top {
+  transform: scale(1.1);
+}
+.product-card .hover-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.3s ease;
+}
+.product-card:hover .hover-overlay {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Divider */
+.divider {
+  width: 80px;
+  height: 4px;
+  border-radius: 2px;
+}
+
+/* Pricing Highlight */
+.transform-scale-sm {
+  transform: scale(1.05);
+}
+@media (max-width: 768px) {
+  .transform-scale-sm {
+    transform: scale(1);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* PRODUCT INDEX T  */
+/* Product Images */
+.product-thumb {
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+.product-thumb:hover,
+.product-thumb.active {
+  opacity: 1;
+  border: 2px solid #dc3545;
+}
+
+/* Buttons */
+.btn-buy-now {
+  background-color: #dc3545;
+  color: white;
+  font-weight: bold;
+}
+.btn-add-cart {
+  background-color: #ffc107;
+  color: black;
+  font-weight: bold;
+}
+.btn-pink {
+  background-color: #ffb6c1;
+  border: none;
+  color: #c71585;
+  font-weight: bold;
+}
+.btn-pink:hover {
+  background-color: #ff69b4;
+  color: white;
+}
+
+/* Section Headers */
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #555;
+  position: relative;
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #ccc;
+  margin: 10px auto 0;
+}
+
+.progress {
+  height: 10px;
+  margin-bottom: 0.5rem;
+}
+
+/* Card Hover */
+.card {
+  transition: transform 0.2s;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.text-green-600 {
+  color: #16a34a;
+}
+.text-green-600:hover {
+  color: #15803d;
+}
+.hover-text-green:hover {
+  color: #16a34a !important;
+}
+.bg-green-600 {
+  background-color: #16a34a;
+}
+
+/* Cyan button color */
+.btn-cyan {
+  background-color: #06b6d4;
+  color: white;
+}
+.btn-cyan:hover {
+  background-color: #0891b2;
+  color: white;
+}
+
+/* starstar*/
+.text-yellow-400 {
+  color: #facc15;
+}
+
+/* Custom Utilities */
+.border-dashed {
+  border-style: dashed !important;
+}
+
+/* thẻ ảnhảnh */
+.img-card-wrapper {
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 75%;
+}
+.img-card-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.product-card:hover .img-card-wrapper img {
+  transform: scale(1.05);
+}
+.product-card {
+  transition: box-shadow 0.3s;
+}
+.product-card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
