@@ -398,6 +398,7 @@ body {
   font-weight: 700;
   background: linear-gradient(to right, #28a745, #20c997);
   -webkit-background-clip: text;
+  background-clip: text; /* duong testtest */
   -webkit-text-fill-color: transparent;
   margin-bottom: 30px;
 }
@@ -483,6 +484,7 @@ body {
 .text-gradient {
   background: linear-gradient(90deg, #198754, #0dcaf0);
   -webkit-background-clip: text;
+  background-clip: text; /* duong testtest */
   -webkit-text-fill-color: transparent;
 }
 
