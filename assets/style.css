@@ -397,7 +397,7 @@ body {
 .section-title {
   font-weight: 700;
   background: linear-gradient(to right, #28a745, #20c997);
-  /* -webkit-background-clip: text; */
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 30px;
 }
@@ -482,7 +482,7 @@ body {
 /* 4. Hiệu ứng chữ Gradient */
 .text-gradient {
   background: linear-gradient(90deg, #198754, #0dcaf0);
-  /* -webkit-background-clip: text; */
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
