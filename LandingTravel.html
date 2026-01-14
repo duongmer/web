@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelViệt - Hành Trình Diệu Kỳ</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS Library (Hiệu ứng khi cuộn trang) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Animate.css (Hiệu ứng tức thì) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+        body { font-family: 'Roboto', sans-serif; overflow-x: hidden; }
+        
+        /* Navbar hiệu ứng chuyển màu */
+        .navbar {
+            transition: all 0.5s;
+            padding: 15px 0;
+        }
+        .navbar.scrolled {
+            background: rgba(34, 34, 34, 0.95) !important;
+            padding: 10px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+
+        /* Biểu tượng máy bay bay lượn */
+        .fa-plane-departure {
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(-5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .search-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: -80px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Hiệu ứng cho Card */
+        .card {
+            overflow: hidden;
+            border: none;
+            border-radius: 15px;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .card:hover .card-img-top {
+            transform: scale(1.1);
+        }
+
+        /* Service Icon Hover */
+        .service-icon {
+            transition: all 0.3s ease;
+            color: #0d6efd;
+        }
+        .col-md-4:hover .service-icon {
+            transform: scale(1.2) rotate(10deg);
+            color: #ffc107;
+        }
+
+        footer { background: #1a1a1a; color: white; padding: 60px 0; }
+        
+        /* Nút quay lại đầu trang */
+        #btnBackToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            z-index: 99;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3 animate__animated animate__fadeInLeft" href="#">
+                <i class="fas fa-plane-departure me-2"></i>TRAVELVIỆT
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#destinations">Điểm đến</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Dịch vụ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Liên hệ</a></li>
+                    <li class="nav-item"><a class="btn btn-warning fw-bold ms-lg-3 px-4 shadow-sm" href="#">ĐẶT TOUR</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero text-center">
+        <div class="container">
+            <h1 class="display-2 fw-bold animate__animated animate__zoomIn">Khám Phá Thế Giới <br><span class="text-warning">Theo Cách Của Bạn</span></h1>
+            <p class="lead animate__animated animate__fadeInUp animate__delay-1s">Hàng ngàn tour du lịch hấp dẫn đang chờ đón bạn khám phá ngay hôm nay.</p>
+            <div class="animate__animated animate__bounceIn animate__delay-2s">
+                <a href="#destinations" class="btn btn-primary btn-lg px-5 py-3 mt-3 fw-bold rounded-pill">BẮT ĐẦU HÀNH TRÌNH</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <section class="container position-relative">
+        <div class="search-form animate__animated animate__fadeInUp shadow" data-aos="fade-up">
+            <form class="row g-3">
+                <div class="col-md-3">
+                    <label class="form-label fw-bold text-dark">Điểm đến</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0"><i class="fas fa-map-marker-alt text-primary"></i></span>
+                        <input type="text" class="form-control border-start-0" placeholder="Bạn muốn đi đâu?">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label fw-bold text-dark">Ngày đi</label>
+                    <input type="date" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label fw-bold text-dark">Loại hình</label>
+                    <select class="form-select">
+                        <option>Nghỉ dưỡng hạng sang</option>
+                        <option>Phượt khám phá</option>
+                        <option>Team Building</option>
+                    </select>
+                </div>
+                <div class="col-md-3 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">TÌM KIẾM TOUR</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Destinations -->
+    <section id="destinations" class="py-5">
+        <div class="container pt-5">
+            <div class="text-center mb-5" data-aos="fade-down">
+                <h2 class="display-5 fw-bold">Điểm Đến Hot Nhất</h2>
+                <div class="mx-auto bg-warning" style="width: 80px; height: 4px;"></div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Hạ Long">
+                        <div class="card-body">
+                            <span class="badge bg-danger mb-2">Bán chạy nhất</span>
+                            <h4 class="card-title fw-bold">Vịnh Hạ Long</h4>
+                            <p class="card-text text-muted">Trải nghiệm du thuyền 5 sao giữa lòng kỳ quan thế giới.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-primary fw-bold mb-0">3,500,000đ</span>
+                                <a href="#" class="btn btn-outline-primary rounded-pill">Chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1588993608283-7f0eda4438be?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Đà Lạt">
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Giá tốt</span>
+                            <h4 class="card-title fw-bold">Đà Lạt Mộng Mơ</h4>
+                            <p class="card-text text-muted">Hòa mình vào không khí se lạnh và ngàn hoa khoe sắc.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-primary fw-bold mb-0">2,200,000đ</span>
+                                <a href="#" class="btn btn-outline-primary rounded-pill">Chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1506461883276-594a12b11cf3?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Hội An">
+                        <div class="card-body">
+                            <span class="badge bg-info mb-2">Văn hóa</span>
+                            <h4 class="card-title fw-bold">Phố Cổ Hội An</h4>
+                            <p class="card-text text-muted">Lạc vào không gian lồng đèn lung linh bên sông Hoài.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 text-primary fw-bold mb-0">1,800,000đ</span>
+                                <a href="#" class="btn btn-outline-primary rounded-pill">Chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="bg-light py-5 mt-5">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="zoom-in">
+                <h2 class="display-6 fw-bold">Dịch Vụ Tuyệt Vời</h2>
+                <p class="text-muted">Chúng tôi chăm sóc hành trình của bạn từ A đến Z</p>
+            </div>
+            <div class="row text-center g-4">
+                <div class="col-md-4" data-aos="flip-left" data-aos-delay="100">
+                    <div class="p-4 bg-white rounded shadow-sm">
+                        <i class="fas fa-shield-alt fa-4 mb-3 service-icon fa-3x"></i>
+                        <h4 class="fw-bold">An Toàn Tuyệt Đối</h4>
+                        <p class="text-muted">Bảo hiểm du lịch quốc tế và hỗ trợ khẩn cấp mọi lúc mọi nơi.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="flip-left" data-aos-delay="300">
+                    <div class="p-4 bg-white rounded shadow-sm">
+                        <i class="fas fa-tags mb-3 service-icon fa-3x"></i>
+                        <h4 class="fw-bold">Giá Tốt Nhất</h4>
+                        <p class="text-muted">Cam kết giá rẻ nhất thị trường với chất lượng tour vượt trội.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="flip-left" data-aos-delay="500">
+                    <div class="p-4 bg-white rounded shadow-sm">
+                        <i class="fas fa-headset mb-3 service-icon fa-3x"></i>
+                        <h4 class="fw-bold">Hỗ Trợ 24/7</h4>
+                        <p class="text-muted">Đội ngũ tư vấn viên nhiệt tình luôn sẵn sàng lắng nghe bạn.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-right">
+                    <h3 class="fw-bold mb-3 text-warning">TRAVELVIỆT</h3>
+                    <p>Khám phá thế giới, lưu giữ khoảnh khắc. Chúng tôi mang đến cho bạn những trải nghiệm đáng nhớ nhất cuộc đời.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white fs-4"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white fs-4"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <h5 class="fw-bold mb-3">Thông Tin Liên Hệ</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-warning"></i> 123 Đường Du Lịch, Quận 1, TP. HCM</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2 text-warning"></i> +84 123 456 789</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2 text-warning"></i> info@travelviet.com</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-left">
+                    <h5 class="fw-bold mb-3">Đăng ký nhận ưu đãi</h5>
+                    <p>Đừng bỏ lỡ các mã giảm giá lên đến 50%.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control rounded-start" placeholder="Email của bạn">
+                        <button class="btn btn-warning fw-bold">GỬI NGAY</button>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p class="text-center mb-0 opacity-75">© 2024 TravelViệt. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button onclick="topFunction()" id="btnBackToTop" class="btn btn-primary shadow">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Khởi tạo AOS (Hiệu ứng khi cuộn trang)
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Xử lý đổi màu Navbar khi cuộn
+        window.onscroll = function() {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            var navbar = document.querySelector(".navbar");
+            var backToTop = document.getElementById("btnBackToTop");
+            
+            if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+                navbar.classList.add("scrolled");
+                backToTop.style.display = "block";
+            } else {
+                navbar.classList.remove("scrolled");
+                backToTop.style.display = "none";
+            }
+        }
+
+        // Hàm quay lại đầu trang
+        function topFunction() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+</body>
+</html>

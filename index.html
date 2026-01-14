@@ -1,15 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page Template</title>
+    <title>Landing Page Template | Ultra Dynamic</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="./assets/style.css">
+
+    <style>
+
+    </style>
 
 <script type="importmap">
 {
@@ -20,15 +24,23 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
-<body>
+<body class="overflow-x-hidden">
+    <!-- Màn hình chờ -->
+    <div id="loader"><div class="spinner-custom"></div></div>
+    
+    <!-- Con trỏ chuột -->
+    <div id="cursor-dot" class="d-none d-lg-block"></div>
+    <div id="cursor-outline" class="d-none d-lg-block"></div>
+
+    <!-- Thanh tiến trình cuộn -->
+    <div id="scroll-bar"></div>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top py-3">
         <div class="container">
-            <a class="navbar-brand fw-bold text-success fs-3" href="#">Landing Page</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand fw-bold text-success fs-3" href="#" data-aos="fade-right">Landing Page</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -41,355 +53,161 @@
                 </ul>
                 <div class="d-flex d-none d-lg-flex gap-3">
                     <button class="btn btn-link text-secondary"><i class="bi bi-search fs-5"></i></button>
-                    <button class="btn btn-link text-secondary"><a href="/webTest/login.html"><i class="bi bi-person fs-5"></i></a></button>
+                    <button class="btn btn-link text-secondary"><a href="./login.html"><i class="bi bi-person fs-5"></i></a></button>
+                    <button onclick="logout()" class="btn btn-danger rounded-pill px-4 shadow">Logout</button>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="bg-light py-5 py-lg-6">
+    <section class="hero-animated-bg py-5 py-lg-6 position-relative">
         <div class="container text-center">
-            <h1 class="display-4 fw-bold text-dark mb-4">Giải pháp Website toàn diện</h1>
-            <p class="lead text-secondary mb-5 mx-auto" style="max-width: 700px;">
-                Tạo dựng thương hiệu trực tuyến chuyên nghiệp với kho giao diện phong phú và công nghệ hiện đại nhất.
+            <h1 class="display-3 fw-bold text-dark mb-4" data-aos="zoom-in">
+                Giải pháp <span class="text-gradient" id="typewriter">Website</span> toàn diện
+            </h1>
+            <p class="lead text-secondary mb-5 mx-auto" style="max-width: 700px;" data-aos="fade-up" data-aos-delay="200">
+                Tạo dựng thương hiệu trực tuyến chuyên nghiệp với kho giao diện phong phú nhất 2024.
             </p>
             
-            <div class="position-relative mt-5">
-                <div class="hero-image-wrapper mx-auto shadow-lg rounded overflow-hidden border border-4 border-white" style="max-width: 900px;">
-                    <img src="./assets/img/banner.jpg" alt="Devices" class="img-fluid w-100">
-                    <div class="overlay-gradient"></div>
+            <div class="position-relative mt-5" data-aos="perspective-up">
+                <div class="hero-image-wrapper mx-auto shadow-lg rounded-4 overflow-hidden border border-5 border-white" style="max-width: 900px; transform-style: preserve-3d;">
+                    <img src="./assets/img/banner.jpg" alt="Devices" class="img-fluid w-100 shadow-hover">
                 </div>
                 
-                <div class="mt-4 d-flex justify-content-center gap-3">
-                    <button class="btn btn-danger rounded-pill px-4 py-2 fw-semibold shadow hover-up">Xem thêm</button>
-                    <button class="btn btn-light border rounded-pill px-4 py-2 fw-semibold shadow-sm hover-up">Liên hệ ngay</button>
+                <div class="mt-5 d-flex justify-content-center gap-3">
+                    <button class="btn btn-danger btn-lg rounded-pill px-5 py-3 fw-bold shadow-lg hover-up" data-aos="fade-right">Xem thêm</button>
+                    <button class="btn btn-white border btn-lg rounded-pill px-5 py-3 fw-bold shadow-sm hover-up" data-aos="fade-left">Liên hệ ngay</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Feature 1 -->
-    <section class="py-5 bg-white">
+    <!-- Feature Section 1 -->
+    <section class="py-5 bg-white overflow-hidden">
         <div class="container">
             <div class="row align-items-center gy-5">
-                <div class="col-lg-6 text-center text-lg-start">
-                    <h2 class="fw-bold mb-3">Website bán hàng</h2>
-                    <p class="text-secondary fs-5 mb-4">
-                        Giao diện website được thiết kế tối ưu cho hoạt động bán hàng, thương mại điện tử. Tích hợp giỏ hàng, thanh toán online, quản lý kho hàng chuyên nghiệp.
-                    </p>
-                    <div class="d-flex justify-content-center justify-content-lg-start gap-3">
-                        <button class="btn btn-outline-danger px-4">Chi tiết</button>
-                        <button class="btn btn-danger px-4 shadow-sm">Đăng ký</button>
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="p-4 border-start border-5 border-success bg-light rounded-3 shadow-sm">
+                        <h2 class="fw-bold mb-3">Website bán hàng</h2>
+                        <p class="text-secondary fs-5 mb-4">Giao diện tối ưu SEO, tích hợp thanh toán tự động, quản lý kho hàng chỉ trong 1 nốt nhạc.</p>
+                        <button class="btn btn-danger px-4 rounded-pill">Đăng ký trải nghiệm</button>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="feature-img shadow rounded overflow-hidden hover-zoom">
-                        <img src="./assets/img/img-product1.jpg" alt="Feature 1" class="img-fluid w-100">
-                    </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="./assets/img/img-product1.jpg" class="img-fluid rounded-4 shadow hover-3d" alt="Feature">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Feature 2 -->
-    <section class="py-5 bg-light">
+    <!-- Feature Section 22 -->
+    <section class="py-5 bg-white overflow-hidden">
         <div class="container">
-            <div class="row align-items-center gy-5 flex-lg-row-reverse">
-                <div class="col-lg-6 text-center text-lg-start">
-                    <h2 class="fw-bold mb-3">Website Tin Tức</h2>
-                    <p class="text-secondary fs-5 mb-4">
-                        Thiết kế hiện đại, giúp độc giả dễ dàng tiếp cận thông tin. Hệ thống quản trị nội dung mạnh mẽ, hỗ trợ SEO tốt nhất cho các tòa soạn báo điện tử.
-                    </p>
-                    <div class="d-flex justify-content-center justify-content-lg-start gap-3">
-                        <button class="btn btn-outline-danger px-4">Chi tiết</button>
-                        <button class="btn btn-danger px-4 shadow-sm">Đăng ký</button>
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="p-4 border-start border-5 border-success bg-light rounded-3 shadow-sm">
+                        <h2 class="fw-bold mb-3">Website Tin Tức</h2>
+                        <p class="text-secondary fs-5 mb-4">Thiết kế hiện đại, giúp độc giả dễ dàng tiếp cận thông tin. Hệ thống quản trị nội dung mạnh mẽ, hỗ trợ SEO tốt nhất cho các tòa soạn báo điện tử.</p>
+                        <button class="btn btn-danger px-4 rounded-pill">Đăng ký trải nghiệm</button>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="feature-img shadow rounded overflow-hidden hover-zoom">
-                        <img src="./assets/img/img-product2.jpg " alt="Feature 2" class="img-fluid w-100">
-                    </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="./assets/img/img-product2.jpg" class="img-fluid rounded-4 shadow hover-3d" alt="Feature">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Icon Grid -->
-    <section class="py-5 py-lg-6 bg-white">
-        <div class="container">
-            <div class="row g-4">
-                <!-- Icon 1 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 border-0 shadow-sm hover-shadow text-center p-4">
-                        <div class="mb-3">
-                            <i class="bi bi-display text-primary display-4"></i>
-                        </div>
-                        <h5 class="fw-bold mb-2">Responsive Design</h5>
-                        <p class="text-secondary text-sm">Tương thích mọi thiết bị</p>
-                    </div>
-                </div>
-                <!-- Icon 2 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 border-0 shadow-sm hover-shadow text-center p-4">
-                        <div class="mb-3">
-                            <i class="bi bi-layout-text-window-reverse text-success display-4"></i>
-                        </div>
-                        <h5 class="fw-bold mb-2">Giao diện hiện đại</h5>
-                        <p class="text-secondary text-sm">Cập nhật xu hướng mới nhất</p>
-                    </div>
-                </div>
-                <!-- Icon 3 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 border-0 shadow-sm hover-shadow text-center p-4">
-                        <div class="mb-3">
-                            <i class="bi bi-cart3 text-purple display-4" style="color: #a855f7;"></i>
-                        </div>
-                        <h5 class="fw-bold mb-2">Thương mại điện tử</h5>
-                        <p class="text-secondary text-sm">Tích hợp thanh toán online</p>
-                    </div>
-                </div>
-                <!-- Icon 4 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 border-0 shadow-sm hover-shadow text-center p-4">
-                        <div class="mb-3">
-                            <i class="bi bi-rocket-takeoff text-warning display-4"></i>
-                        </div>
-                        <h5 class="fw-bold mb-2">Tối ưu tốc độ</h5>
-                        <p class="text-secondary text-sm">Load trang siêu tốc</p>
-                    </div>
-                </div>
-                <!-- Icon 5 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 border-0 shadow-sm hover-shadow text-center p-4">
-                        <div class="mb-3">
-                            <i class="bi bi-shield-lock text-danger display-4"></i>
-                        </div>
-                        <h5 class="fw-bold mb-2">Bảo mật cao</h5>
-                        <p class="text-secondary text-sm">An toàn dữ liệu tuyệt đối</p>
-                    </div>
-                </div>
-                <!-- Icon 6 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 border-0 shadow-sm hover-shadow text-center p-4">
-                        <div class="mb-3">
-                            <i class="bi bi-clock-history text-info display-4"></i>
-                        </div>
-                        <h5 class="fw-bold mb-2">Hỗ trợ 24/7</h5>
-                        <p class="text-secondary text-sm">Luôn sẵn sàng giải đáp</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+        
     <!-- Product Grid -->
     <section class="py-5 bg-light">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold text-uppercase">SẢN PHẨM</h2>
-                <div class="divider bg-success mx-auto mt-3"></div>
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h6 class="text-success fw-bold text-uppercase">Premium Templates</h6>
+                <h2 class="display-5 fw-bold">SẢN PHẨM NỔI BẬT</h2>
             </div>
             
             <div class="row g-4">
-                <!-- Product 1 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card product-card h-100 border-0 shadow-sm">
-                        <div class="overflow-hidden position-relative">
-                            <img src="./assets/img/sanpham1.jpg" class="card-img-top" alt="Product">
-                            <div class="hover-overlay"></div>
+                <!-- Product Card (Lặp lại cho các sản phẩm) -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card product-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                        <div class="overflow-hidden">
+                            <img src="./assets/img/sanpham1.jpg" class="card-img-top transition-transform" alt="Product">
                         </div>
-                        <div class="card-body text-center p-4">
-                            <h5 class="fw-bold mb-3">Template Du Lịch</h5>
-                            <div class="d-flex justify-content-center gap-2">
-                                <button class="btn btn-light btn-sm fw-medium">Xem demo</button>
-                                <button class="btn btn-success btn-sm fw-medium">Mua ngay</button>
+                        <div class="card-body p-4 text-center">
+                            <h5 class="fw-bold">Template Du Lịch</h5>
+                            <p class="text-muted small">Tối ưu trải nghiệm khách hàng</p>
+                            <div class="d-flex justify-content-center gap-2 mt-3">
+                                <button class="btn btn-outline-dark btn-sm rounded-pill px-3">Demo</button>
+                                <button class="btn btn-success btn-sm rounded-pill px-3 shadow">Mua ngay</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Product 2 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card product-card h-100 border-0 shadow-sm">
-                        <div class="overflow-hidden position-relative">
-                            <img src="./assets/img/sanpham2.jpg" class="card-img-top" alt="Product">
-                            <div class="hover-overlay"></div>
-                        </div>
-                        <div class="card-body text-center p-4">
-                            <h5 class="fw-bold mb-3">Template Bất Động Sản</h5>
-                            <div class="d-flex justify-content-center gap-2">
-                                <button class="btn btn-light btn-sm fw-medium">Xem demo</button>
-                                <button class="btn btn-success btn-sm fw-medium">Mua ngay</button>
+                <!-- Copy mẫu card trên cho các sản phẩm 2,3,4... -->
+                <!-- Ví dụ Product 2 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card product-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                        <img src="./assets/img/sanpham2.jpg" class="card-img-top" alt="Product">
+                        <div class="card-body p-4 text-center">
+                            <h5 class="fw-bold">Template Bất Động Sản</h5>
+                            <div class="d-flex justify-content-center gap-2 mt-3">
+                                <button class="btn btn-outline-dark btn-sm rounded-pill px-3">Demo</button>
+                                <button class="btn btn-success btn-sm rounded-pill px-3">Mua ngay</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Product 3 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card product-card h-100 border-0 shadow-sm">
-                        <div class="overflow-hidden position-relative">
-                            <img src="./assets/img/sanpham3.jpg" class="card-img-top" alt="Product">
-                            <div class="hover-overlay"></div>
-                        </div>
-                        <div class="card-body text-center p-4">
-                            <h5 class="fw-bold mb-3">Template Thời Trang</h5>
-                            <div class="d-flex justify-content-center gap-2">
-                                <button class="btn btn-light btn-sm fw-medium">Xem demo</button>
-                                <button class="btn btn-success btn-sm fw-medium">Mua ngay</button>
+                <!-- Ví dụ Product 3 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card product-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                        <img src="./assets/img/sanpham3.jpg" class="card-img-top" alt="Product">
+                        <div class="card-body p-4 text-center">
+                            <h5 class="fw-bold">Template Thời Trang</h5>
+                            <div class="d-flex justify-content-center gap-2 mt-3">
+                                <button class="btn btn-outline-dark btn-sm rounded-pill px-3">Demo</button>
+                                <button class="btn btn-success btn-sm rounded-pill px-3">Mua ngay</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Product 4 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card product-card h-100 border-0 shadow-sm">
-                        <div class="overflow-hidden position-relative">
-                            <img src="./assets/img/sanpham4.jpg" class="card-img-top" alt="Product">
-                            <div class="hover-overlay"></div>
-                        </div>
-                        <div class="card-body text-center p-4">
-                            <h5 class="fw-bold mb-3">Template Giáo Dục</h5>
-                            <div class="d-flex justify-content-center gap-2">
-                                <button class="btn btn-light btn-sm fw-medium">Xem demo</button>
-                                <button class="btn btn-success btn-sm fw-medium">Mua ngay</button>
+                <!-- Ví dụ Product 4 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card product-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                        <img src="./assets/img/sanpham4.jpg" class="card-img-top" alt="Product">
+                        <div class="card-body p-4 text-center">
+                            <h5 class="fw-bold">emplate Giáo Dục</h5>
+                            <div class="d-flex justify-content-center gap-2 mt-3">
+                                <button class="btn btn-outline-dark btn-sm rounded-pill px-3">Demo</button>
+                                <button class="btn btn-success btn-sm rounded-pill px-3">Mua ngay</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Product 5 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card product-card h-100 border-0 shadow-sm">
-                        <div class="overflow-hidden position-relative">
-                            <img src="./assets/img/sanpham5.jpg" class="card-img-top" alt="Product">
-                            <div class="hover-overlay"></div>
-                        </div>
-                        <div class="card-body text-center p-4">
-                            <h5 class="fw-bold mb-3">Template Nội Thất</h5>
-                            <div class="d-flex justify-content-center gap-2">
-                                <button class="btn btn-light btn-sm fw-medium">Xem demo</button>
-                                <button class="btn btn-success btn-sm fw-medium">Mua ngay</button>
+                <!-- Ví dụ Product 5 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card product-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                        <img src="./assets/img/sanpham5.jpg" class="card-img-top" alt="Product">
+                        <div class="card-body p-4 text-center">
+                            <h5 class="fw-bold">Template Nội Thất</h5>
+                            <div class="d-flex justify-content-center gap-2 mt-3">
+                                <button class="btn btn-outline-dark btn-sm rounded-pill px-3">Demo</button>
+                                <button class="btn btn-success btn-sm rounded-pill px-3">Mua ngay</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Product 6 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="card product-card h-100 border-0 shadow-sm">
-                        <div class="overflow-hidden position-relative">
-                            <img src="./assets/img/sanpham6.jpg" class="card-img-top" alt="Product">
-                            <div class="hover-overlay"></div>
-                        </div>
-                        <div class="card-body text-center p-4">
-                            <h5 class="fw-bold mb-3">Template Công Nghệ</h5>
-                            <div class="d-flex justify-content-center gap-2">
-                                <button class="btn btn-light btn-sm fw-medium">Xem demo</button>
-                                <button class="btn btn-success btn-sm fw-medium">Mua ngay</button>
+                <!-- Ví dụ Product 5 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card product-card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+                        <img src="./assets/img/sanpham6.jpg" class="card-img-top" alt="Product">
+                        <div class="card-body p-4 text-center">
+                            <h5 class="fw-bold">Template Công Nghệ</h5>
+                            <div class="d-flex justify-content-center gap-2 mt-3">
+                                <button class="btn btn-outline-dark btn-sm rounded-pill px-3">Demo</button>
+                                <button class="btn btn-success btn-sm rounded-pill px-3">Mua ngay</button>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-5">
-                <button class="btn btn-outline-secondary px-5 py-2">Xem tất cả sản phẩm</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Promo Banner -->
-    <section class="py-5" style="background-color: #fce7f3;">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-6 mb-4 mb-md-0">
-                    <h2 class="fw-bold mb-3">Xây dựng website thương hiệu uy tín</h2>
-                    <p class="text-secondary mb-4">
-                        Với kinh nghiệm nhiều năm trong lĩnh vực thiết kế web, chúng tôi cam kết mang đến những sản phẩm chất lượng nhất. 
-                        Công nghệ tiên tiến, hỗ trợ chuẩn SEO, giao diện đẹp mắt và dễ sử dụng.
-                    </p>
-                    <p class="fst-italic text-secondary">"Sự hài lòng của khách hàng là thước đo thành công của chúng tôi."</p>
-                </div>
-                <div class="col-md-6 text-center">
-                    <!-- <video src="./assets/img/videoframe_8326.png" style="max-width: 100%;"></video> -->
-                    <img src="./assets/img/banner2.jpg" class="img-fluid rounded shadow hover-rotate" style="max-width: 100%;">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Table -->
-    <section class="py-5 bg-white">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold text-uppercase">Bảng Giá</h2>
-                <div class="divider bg-success mx-auto mt-3"></div>
-                <p class="text-secondary mt-3">Chi phí minh bạch, không phát sinh. Chọn gói phù hợp để bắt đầu ngay hôm nay.</p>
-            </div>
-
-            <div class="row g-4 align-items-center">
-                <!-- Basic Plan -->
-                <div class="col-md-4">
-                    <div class="card h-100 border border-light bg-light hover-up">
-                        <div class="card-body p-4 p-lg-5">
-                            <h4 class="fw-bold mb-2">CƠ BẢN</h4>
-                            <p class="text-secondary small mb-4">Dành cho cá nhân và doanh nghiệp nhỏ</p>
-                            <div class="mb-4">
-                                <span class="h2 fw-bold">5.000.000đ</span><span class="text-secondary">/năm</span>
-                            </div>
-                            <ul class="list-unstyled mb-4">
-                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Giao diện cơ bản</li>
-                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Hosting 2GB</li>
-                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Băng thông không giới hạn</li>
-                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Hỗ trợ qua Email</li>
-                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Bảo hành 12 tháng</li>
-                            </ul>
-                            <button class="btn btn-outline-secondary w-100 py-2">Đăng ký ngay</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- VIP Plan -->
-                <div class="col-md-4">
-                    <div class="card h-100 border border-success shadow hover-up transform-scale-sm" style="z-index: 10;">
-                        <div class="position-absolute top-0 start-50 translate-middle">
-                            <span class="badge bg-success rounded-pill px-3 py-2 text-uppercase">Phổ biến nhất</span>
-                        </div>
-                        <div class="card-body p-4 p-lg-5">
-                            <h4 class="fw-bold mb-2">VIP</h4>
-                            <p class="text-secondary small mb-4">Giải pháp tối ưu cho doanh nghiệp</p>
-                            <div class="mb-4">
-                                <span class="h2 fw-bold">10.000.000đ</span><span class="text-secondary">/năm</span>
-                            </div>
-                            <ul class="list-unstyled mb-4">
-                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Giao diện thiết kế riêng</li>
-                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Hosting 10GB SSD</li>
-                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Băng thông không giới hạn</li>
-                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Tối ưu SEO cơ bản</li>
-                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Hỗ trợ 24/7</li>
-                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Tặng tên miền .com</li>
-                            </ul>
-                            <button class="btn btn-success w-100 py-2">Đăng ký ngay</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pro Plan -->
-                <div class="col-md-4">
-                    <div class="card h-100 border border-light bg-light hover-up">
-                        <div class="card-body p-4 p-lg-5">
-                            <h4 class="fw-bold mb-2">CHUYÊN NGHIỆP</h4>
-                            <p class="text-secondary small mb-4">Dành cho tập đoàn và dự án lớn</p>
-                            <div class="mb-4">
-                                <span class="h2 fw-bold">20.000.000đ</span><span class="text-secondary">/năm</span>
-                            </div>
-                            <ul class="list-unstyled mb-4">
-                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Thiết kế độc quyền</li>
-                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Hosting không giới hạn</li>
-                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Tối ưu SEO nâng cao</li>
-                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Tích hợp CRM/ERP</li>
-                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Hỗ trợ trọn đời</li>
-                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i>Bảo mật đa lớp</li>
-                            </ul>
-                            <button class="btn btn-outline-secondary w-100 py-2">Đăng ký ngay</button>
                         </div>
                     </div>
                 </div>
@@ -397,62 +215,321 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-light pt-5 pb-4">
+
+         <section class="py-5 overflow-hidden position-relative" style="background: linear-gradient(135deg, #fff5f7 0%, #fce7f3 100%);">
+            <!-- Các khối màu trang trí phía sau -->
+            <!-- <div class="blob" style="top: -10%; right: -5%; width: 400px; height: 400px; background: rgba(255, 192, 203, 0.4);"></div> -->
+            
+            <div class="container position-relative">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
+                        <div class="pe-lg-5">
+                            <span class="badge bg-danger mb-3 px-3 py-2 rounded-pill shadow-sm">TẠI SAO CHỌN CHÚNG TÔI?</span>
+                            <h2 class="display-5 fw-bold mb-4 text-dark">Xây dựng website thương hiệu <span class="text-danger">uy tín</span></h2>
+                            <p class="text-secondary fs-5 mb-4 lh-lg">
+                                Với kinh nghiệm nhiều năm trong lĩnh vực thiết kế web, chúng tôi cam kết mang đến những sản phẩm chất lượng nhất. 
+                                Công nghệ tiên tiến, hỗ trợ chuẩn SEO, giao diện đẹp mắt và dễ sử dụng.
+                            </p>
+                            
+                            <!-- Thêm phần chỉ số (Counter) nhỏ cho đẹp -->
+                            <div class="row g-3 mb-4">
+                                <div class="col-6">
+                                    <div class="p-3 bg-white bg-opacity-50 rounded-3 shadow-sm border border-white">
+                                        <h3 class="fw-bold text-danger m-0">10+</h3>
+                                        <p class="small text-muted m-0">Năm kinh nghiệm</p>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-3 bg-white bg-opacity-50 rounded-3 shadow-sm border border-white">
+                                        <h3 class="fw-bold text-danger m-0">1500+</h3>
+                                        <p class="small text-muted m-0">Dự án hoàn thành</p>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <p class="fst-italic text-secondary border-start border-4 border-danger ps-3 py-2 bg-white bg-opacity-30">
+                                "Sự hài lòng của khách hàng là thước đo thành công duy nhất của chúng tôi."
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-center" data-aos="zoom-in-left">
+                        <div class="position-relative p-4">
+                            <!-- Hiệu ứng khung ảnh kép -->
+                            <div class="position-absolute top-0 start-0 w-100 h-100 bg-danger opacity-10 rounded-4 transform-rotate-3"></div>
+                            <img src="./assets/img/banner2.jpg" class="img-fluid rounded-4 shadow-lg position-relative z-index-1 hover-up transition-all" style="max-width: 100%; border: 8px solid white;">
+                            
+                            <!-- Icon trôi nổi trang trí -->
+                            <div class="position-absolute top-0 end-0 bg-white p-3 rounded-circle shadow-lg float-animation d-none d-lg-block">
+                                <i class="bi bi-shield-check text-success fs-2"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <span class="text-success fw-bold text-uppercase tracking-wider">Bảng giá dịch vụ</span>
+                    <h2 class="display-5 fw-bold mt-2">Đầu tư nhỏ, <span class="text-success">Hiệu quả lớn</span></h2>
+                    <div class="divider bg-success mx-auto mt-3" style="width: 60px; height: 4px; border-radius: 2px;"></div>
+                    <p class="text-secondary mt-3">Chi phí minh bạch, không phát sinh. Chọn gói phù hợp để bắt đầu ngay hôm nay.</p>
+                </div>
+    
+                <div class="row g-4 align-items-stretch">
+                    <!-- Basic Plan -->
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card h-100 border-0 shadow-sm bg-light hover-shadow transition-all rounded-4">
+                            <div class="card-body p-4 p-xl-5">
+                                <div class="mb-4">
+                                    <h5 class="fw-bold text-uppercase text-muted">CƠ BẢN</h5>
+                                    <div class="d-flex align-items-end my-3">
+                                        <h2 class="fw-bold m-0">5.0M</h2>
+                                        <span class="text-secondary ms-1">/năm</span>
+                                    </div>
+                                    <p class="small text-muted">Phù hợp cho khởi nghiệp cá nhân</p>
+                                </div>
+                                <hr>
+                                <ul class="list-unstyled mb-5">
+                                    <li class="mb-3 d-flex align-items-center"><i class="bi bi-check-circle-fill text-success me-3"></i>Giao diện cơ bản</li>
+                                    <li class="mb-3 d-flex align-items-center"><i class="bi bi-check-circle-fill text-success me-3"></i>Hosting 2GB SSD</li>
+                                    <li class="mb-3 d-flex align-items-center"><i class="bi bi-check-circle-fill text-success me-3"></i>Băng thông ổn định</li>
+                                    <li class="mb-3 d-flex align-items-center text-muted text-decoration-line-through"><i class="bi bi-x-circle me-3"></i>Tối ưu SEO chuyên sâu</li>
+                                </ul>
+                                <button class="btn btn-outline-success w-100 py-3 rounded-pill fw-bold">ĐĂNG KÝ NGAY</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- VIP Plan (The Hero Card) -->
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100 border-0 shadow-lg position-relative rounded-4 overflow-hidden" style="background: #212529; color: white; transform: scale(1.05); z-index: 2;">
+                            <!-- Hiệu ứng dải lụa -->
+                            <div class="position-absolute top-0 end-0 bg-success text-white px-4 py-1 mt-4 me-n4 transform-rotate-45 shadow-sm small fw-bold" style="width: 150px; text-align: center; right: -35px; top: 15px;">
+                                PHỔ BIẾN
+                            </div>
+                            
+                            <div class="card-body p-4 p-xl-5 d-flex flex-column">
+                                <div class="mb-4">
+                                    <h5 class="fw-bold text-uppercase text-success">VIP GÓI TỐI ƯU</h5>
+                                    <div class="d-flex align-items-end my-3">
+                                        <h2 class="fw-bold m-0 text-white">10.0M</h2>
+                                        <span class="text-secondary ms-1">/năm</span>
+                                    </div>
+                                    <p class="small text-secondary">Dành cho doanh nghiệp tăng trưởng</p>
+                                </div>
+                                <hr class="border-secondary">
+                                <ul class="list-unstyled mb-5 flex-grow-1">
+                                    <li class="mb-3 d-flex align-items-center"><i class="bi bi-check-circle-fill text-success me-3"></i>Giao diện thiết kế riêng</li>
+                                    <li class="mb-3 d-flex align-items-center"><i class="bi bi-check-circle-fill text-success me-3"></i>Hosting 10GB SSD</li>
+                                    <li class="mb-3 d-flex align-items-center"><i class="bi bi-check-circle-fill text-success me-3"></i>Tối ưu SEO cơ bản</li>
+                                    <li class="mb-3 d-flex align-items-center"><i class="bi bi-check-circle-fill text-success me-3"></i>Tặng tên miền .com</li>
+                                    <li class="mb-3 d-flex align-items-center"><i class="bi bi-check-circle-fill text-success me-3"></i>Hỗ trợ kỹ thuật 24/7</li>
+                                </ul>
+                                <button class="btn btn-success btn-shine w-100 py-3 rounded-pill fw-bold shadow">CHỌN GÓI VIP</button>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Pro Plan -->
+                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card h-100 border-0 shadow-sm bg-light hover-shadow transition-all rounded-4">
+                            <div class="card-body p-4 p-xl-5">
+                                <div class="mb-4">
+                                    <h5 class="fw-bold text-uppercase text-muted">CHUYÊN NGHIỆP</h5>
+                                    <div class="d-flex align-items-end my-3">
+                                        <h2 class="fw-bold m-0 text-dark">20.0M</h2>
+                                        <span class="text-secondary ms-1">/năm</span>
+                                    </div>
+                                    <p class="small text-muted">Giải pháp cho tập đoàn lớn</p>
+                                </div>
+                                <hr>
+                                <ul class="list-unstyled mb-5">
+                                    <li class="mb-3 d-flex align-items-center"><i class="bi bi-check-circle-fill text-success me-3"></i>Thiết kế độc quyền</li>
+                                    <li class="mb-3 d-flex align-items-center"><i class="bi bi-check-circle-fill text-success me-3"></i>Hosting không giới hạn</li>
+                                    <li class="mb-3 d-flex align-items-center"><i class="bi bi-check-circle-fill text-success me-3"></i>Bảo mật đa lớp</li>
+                                    <li class="mb-3 d-flex align-items-center"><i class="bi bi-check-circle-fill text-success me-3"></i>Tích hợp CRM/ERP</li>
+                                </ul>
+                                <button class="btn btn-outline-dark w-100 py-3 rounded-pill fw-bold">ĐĂNG KÝ NGAY</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+
+        <section class="py-6 bg-light">
+            <div class="container">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="fw-bold">Khách hàng nói về chúng tôi</h2>
+                    <p class="text-muted">Hàng nghìn doanh nghiệp đã thành công cùng Landing Page</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="card border-0 shadow-sm p-4 rounded-4">
+                            <div class="mb-3 text-warning">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                            <p class="text-secondary fst-italic">"Dịch vụ tuyệt vời! Website của tôi đạt top Google chỉ sau 3 tháng sử dụng mẫu template của các bạn."</p>
+                            <div class="d-flex align-items-center mt-3">
+                                <div class="bg-success rounded-circle me-3" style="width: 50px; height: 50px;"></div>
+                                <div>
+                                    <h6 class="fw-bold m-0">Nguyễn Văn Anh</h6>
+                                    <small class="text-muted">CEO tại TechVina</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="card border-0 shadow-sm p-4 rounded-4">
+                            <div class="mb-3 text-warning">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                            <p class="text-secondary fst-italic">"Dịch vụ tuyệt vời! Website của tôi đạt top Google chỉ sau 3 tháng sử dụng mẫu template của các bạn."</p>
+                            <div class="d-flex align-items-center mt-3">
+                                <div class="bg-success rounded-circle me-3" style="width: 50px; height: 50px;"></div>
+                                <div>
+                                    <h6 class="fw-bold m-0">Nguyễn Văn Anh</h6>
+                                    <small class="text-muted">CEO tại TechVina</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="card border-0 shadow-sm p-4 rounded-4">
+                            <div class="mb-3 text-warning">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                            <p class="text-secondary fst-italic">"Dịch vụ tuyệt vời! Website của tôi đạt top Google chỉ sau 3 tháng sử dụng mẫu template của các bạn."</p>
+                            <div class="d-flex align-items-center mt-3">
+                                <div class="bg-success rounded-circle me-3" style="width: 50px; height: 50px;"></div>
+                                <div>
+                                    <h6 class="fw-bold m-0">Nguyễn Văn Anh</h6>
+                                    <small class="text-muted">CEO tại TechVina</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+
+        <section class="py-6 bg-white">
+            <div class="container" style="max-width: 800px;">
+                <div class="text-center mb-5" data-aos="fade-up">
+                    <h2 class="fw-bold">Câu hỏi thường gặp</h2>
+                    <p class="text-muted">Chúng tôi luôn sẵn sàng giải đáp mọi thắc mắc của bạn</p>
+                </div>
+                <div class="accordion accordion-flush shadow-sm rounded-4 overflow-hidden border" id="faqAccordion" data-aos="fade-up">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button fw-bold py-4" type="button" data-bs-toggle="collapse" data-bs-target="#f1">
+                                Tôi có được đổi mẫu template sau khi mua không?
+                            </button>
+                        </h2>
+                        <div id="f1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-secondary">
+                                Chúng tôi hỗ trợ đổi mẫu miễn phí trong vòng 7 ngày đầu tiên nếu bạn cảm thấy chưa thực sự phù hợp với ngành hàng của mình.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed fw-bold py-4" type="button" data-bs-toggle="collapse" data-bs-target="#f2">
+                                Website có hỗ trợ chuẩn SEO không?
+                            </button>
+                        </h2>
+                        <div id="f2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body text-secondary">
+                                Tất cả mẫu template của chúng tôi đều được tối ưu hóa cấu trúc dữ liệu chuẩn SEO, giúp website dễ dàng lên top Google.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Footer Waves Effect -->
+    <div class="bg-light mt-5">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(33,37,41,0.7" />
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(33,37,41,0.5)" />
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="#212529" />
+            </g>
+        </svg>
+    </div>
+
+    <!-- Footer (Dark) -->
+    <footer class="bg-dark text-light pt-4 pb-4">
         <div class="container">
             <div class="row g-4">
-                <!-- About -->
-                <div class="col-md-6 col-lg-3">
-                    <h5 class="fw-bold mb-3">Landing Page</h5>
-                    <p class="small text-secondary mb-4">
-                        Chúng tôi cung cấp giải pháp thiết kế website chuyên nghiệp, giúp doanh nghiệp của bạn bứt phá doanh thu trong kỷ nguyên số.
-                    </p>
-                    <div class="d-flex gap-3">
-                        <a href="#" class="text-light hover-green"><i class="bi bi-facebook fs-5"></i></a>
-                        <a href="#" class="text-light hover-green"><i class="bi bi-twitter fs-5"></i></a>
-                        <a href="#" class="text-light hover-green"><i class="bi bi-instagram fs-5"></i></a>
-                    </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                    <h5 class="fw-bold text-success">Landing Page</h5>
+                    <p class="small text-secondary">Giải pháp công nghệ vượt giới hạn.</p>
                 </div>
-                <!-- Links -->
-                <div class="col-md-6 col-lg-3">
-                    <h5 class="fw-bold mb-3">Liên kết</h5>
+                <!-- Giữ nguyên các phần liên kết & liên hệ cũ của bạn -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <h5 class="fw-bold mb-3 text-white">Liên hệ</h5>
                     <ul class="list-unstyled small text-secondary">
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">Trang chủ</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">Giới thiệu</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">Dịch vụ</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">Bảng giá</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">Tin tức</a></li>
-                    </ul>
-                </div>
-                <!-- Services -->
-                <div class="col-md-6 col-lg-3">
-                    <h5 class="fw-bold mb-3">Dịch vụ</h5>
-                    <ul class="list-unstyled small text-secondary">
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">Thiết kế Website</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">Marketing Online</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">SEO trọn gói</a></li>
-                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">Chăm sóc Fanpage</a></li>
-                    </ul>
-                </div>
-                <!-- Contact -->
-                <div class="col-md-6 col-lg-3">
-                    <h5 class="fw-bold mb-3">Liên hệ</h5>
-                    <ul class="list-unstyled small text-secondary">
-                        <li class="mb-3 d-flex"><i class="bi bi-geo-alt text-success me-2"></i>Số 123, Đường ABC, Quận XYZ, TP. Hồ Chí Minh</li>
-                        <li class="mb-3 d-flex"><i class="bi bi-telephone text-success me-2"></i>090 123 4567</li>
-                        <li class="mb-3 d-flex"><i class="bi bi-envelope text-success me-2"></i>contact@landingpage.com</li>
+                        <li><i class="bi bi-geo-alt me-2"></i>Số 123, Đường ABC, TP.HCM</li>
+                        <li><i class="bi bi-telephone me-2"></i>090 123 4567</li>
                     </ul>
                 </div>
             </div>
-            <div class="border-top border-secondary mt-5 pt-4 text-center small text-secondary">
-                <p>&copy; 2024 Landing Page. All rights reserved.</p>
-            </div>
+            <hr class="border-secondary mt-5">
+            <p class="text-center small text-secondary">&copy; 2024 Landing Page. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Bootstrap Bundle with Popper -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // 1. Khởi tạo Animation
+        AOS.init({ duration: 1000, once: false, mirror: true });
+
+        // 2. Màn hình chờ
+        window.onload = () => { document.getElementById('loader').style.display = 'none'; };
+
+        // 3. Con trỏ chuột tùy chỉnh
+        const dot = document.getElementById('cursor-dot');
+        const outline = document.getElementById('cursor-outline');
+        window.addEventListener('mousemove', (e) => {
+            dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
+            outline.animate({ left: e.clientX + 'px', top: e.clientY + 'px' }, { duration: 500, fill: "forwards" });
+        });
+
+        // 4. Thanh tiến trình cuộn
+        window.onscroll = () => {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-bar").style.width = scrolled + "%";
+        };
+
+        // 5. Hiệu ứng Typewriter đơn giản
+        const words = ["Website", "Landing Page", "Mobile App", "Thương Hiệu"];
+        let i = 0; let j = 0; let currentWord = ""; let isDeleting = false;
+        function type() {
+            currentWord = words[i];
+            if (isDeleting) {
+                document.getElementById("typewriter").textContent = currentWord.substring(0, j-1); j--;
+                if (j == 0) { isDeleting = false; i = (i + 1) % words.length; }
+            } else {
+                document.getElementById("typewriter").textContent = currentWord.substring(0, j+1); j++;
+                if (j == currentWord.length) { isDeleting = true; setTimeout(type, 2000); return; }
+            }
+            setTimeout(type, isDeleting ? 100 : 200);
+        }
+        type();
+    </script>
     <script src="./script.js"></script>
-<script type="module" src="/index.tsx"></script>
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>

@@ -21,11 +21,11 @@
   transition: opacity 0.5s ease-in-out;
 }
 .form-hidden {
-  display: none;
+  display: none !important;
   opacity: 0;
 }
 .form-active {
-  display: block;
+  display: block !important;
   opacity: 1;
 }
 .form-control:focus {
@@ -98,7 +98,7 @@ body {
   transform: rotate(0deg) !important;
 }
 
-/* Product Card Specifics */
+/* Product Card  */
 .product-card .card-img-top {
   transition: transform 0.5s ease;
   height: 250px;
@@ -264,4 +264,351 @@ body {
 }
 .product-card:hover {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+:root {
+  --primary-gradient: linear-gradient(45deg, #28a745, #20c997);
+  --pink-gradient: linear-gradient(45deg, #ff4d6d, #ff758f);
+  --danger-gradient: linear-gradient(45deg, #dc3545, #ff4d4d);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f8f9fa;
+  overflow-x: hidden;
+}
+
+/* Hiệu ứng trượt lên khi tải trang */
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Navbar & Nav-link */
+.navbar {
+  transition: all 0.3s;
+}
+.hover-green:hover {
+  color: #28a745 !important;
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+/* Hero Banner Zoom */
+.card-img {
+  transition: transform 5s ease;
+}
+.card:hover .card-img {
+  transform: scale(1.1);
+}
+
+/* Product Image Gallery */
+#mainImage {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+#mainImage:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-thumb {
+  cursor: pointer;
+  transition: 0.3s;
+  border: 2px solid transparent;
+}
+.product-thumb:hover {
+  transform: translateY(-5px);
+  border-color: #28a745;
+}
+.product-thumb.active {
+  border-color: #28a745;
+}
+
+/* Buttons Enhancement */
+.btn-add-cart {
+  background: var(--primary-gradient) !important;
+  color: white !important;
+  border: none !important;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-add-cart:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+}
+
+.btn-buy-now {
+  background: var(--danger-gradient) !important;
+  color: white !important;
+  border: none !important;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(220, 53, 69, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+  }
+}
+
+.btn-pink {
+  background: var(--pink-gradient) !important;
+  color: white !important;
+  border: none !important;
+}
+.btn-pink:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+/* Card Related Products */
+.card {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 15px !important;
+  overflow: hidden;
+}
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Progress Bar Animation */
+.progress-bar {
+  transition: width 1.5s ease-in-out;
+}
+
+/* Section Title Gradient */
+.section-title {
+  font-weight: 700;
+  background: linear-gradient(to right, #28a745, #20c997);
+  /* -webkit-background-clip: text; */
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 30px;
+}
+
+/* QR Code Hover */
+.card.bg-light:hover {
+  background-color: #e9ecef !important;
+  transform: rotate(2deg);
+}
+
+/* css index moiwoiw */
+/* 1. Màn hình chờ (Pre-loader) */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.spinner-custom {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #198754;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 2. Con trỏ chuột tùy chỉnh (Custom Cursor) */
+#cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #198754;
+  position: fixed;
+  border-radius: 50%;
+  z-index: 10000;
+  pointer-events: none;
+  transition: transform 0.1s;
+}
+#cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #198754;
+  position: fixed;
+  border-radius: 50%;
+  z-index: 10000;
+  pointer-events: none;
+  transition: 0.15s;
+}
+
+/* 3. Nền động cho Hero Section */
+.hero-animated-bg {
+  background: linear-gradient(-45deg, #f8f9fa, #e9ecef, #d1e7dd, #f8f9fa);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 4. Hiệu ứng chữ Gradient */
+.text-gradient {
+  background: linear-gradient(90deg, #198754, #0dcaf0);
+  /* -webkit-background-clip: text; */
+  -webkit-text-fill-color: transparent;
+}
+
+/* 5. Hiệu ứng Card 3D & Glow */
+.product-card {
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  z-index: 1;
+}
+.product-card:hover {
+  transform: translateY(-15px) rotateX(5deg) rotateY(5deg) !important;
+  box-shadow: 0 15px 35px rgba(25, 135, 84, 0.2) !important;
+}
+.product-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: 0.5s;
+  z-index: 2;
+  pointer-events: none;
+}
+.product-card:hover::before {
+  transform: translateX(100%);
+}
+
+/* 6. Hiệu ứng Wave (Sóng) ở Footer */
+.waves {
+  position: relative;
+  width: 100%;
+  height: 15vh;
+  margin-bottom: -7px;
+  min-height: 100px;
+  max-height: 150px;
+}
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+
+/* 7. Scroll Progress Bar */
+#scroll-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: #198754;
+  z-index: 100000;
+  width: 0%;
+  transition: 0.1s;
+}
+
+.py-6 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.transform-rotate-3 {
+  transform: rotate(3deg);
+}
+.transform-rotate-45 {
+  transform: rotate(45deg);
+}
+.transition-all {
+  transition: all 0.3s ease;
+}
+.hover-shadow:hover {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1) !important;
+}
+.tracking-wider {
+  letter-spacing: 2px;
+}
+
+/* Hiệu ứng Shine cho nút VIP */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(45deg);
+  transition: 0.5s;
+  left: -100%;
+}
+.btn-shine:hover::after {
+  left: 100%;
+}
+
+/* Float Animation */
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.float-animation {
+  animation: floating 3s ease-in-out infinite;
 }

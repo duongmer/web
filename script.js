@@ -1,15 +1,25 @@
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("Website đã tải thành công!");
+const loginBox = document.getElementById("login-box");
+const registerBox = document.getElementById("register-box");
 
-  // sự kiện click nút Mua
-  const buyButtons = document.querySelectorAll(".btn-success");
-  buyButtons.forEach((btn) => {
-    btn.addEventListener("click", function () {
-      console.log("Đã click mua hàng");
-    });
-  });
-});
+document.getElementById("show-register").onclick = function (e) {
+  e.preventDefault();
+  loginBox.classList.add("form-hidden");
+  registerBox.classList.remove("form-hidden");
+};
 
+document.getElementById("show-login").onclick = function (e) {
+  e.preventDefault();
+  registerBox.classList.add("form-hidden");
+  loginBox.classList.remove("form-hidden");
+};
+
+// Login → chuyển trang
+document.getElementById("login-form").onsubmit = function (e) {
+  e.preventDefault();
+  window.location.href = "./index.html";
+};
+
+//chueyrn đỏi ânhr
 function changeImage(element) {
   document
     .querySelectorAll(".product-thumb")
@@ -72,70 +82,65 @@ const ratingContainer = document.getElementById("rating-filters");
   ratingContainer.appendChild(div);
 });
 
-//suwj kien form login voi regeiter
-document.addEventListener("DOMContentLoaded", () => {
-  const loginFormContainer = document.getElementById("login-form-container");
-  const registerFormContainer = document.getElementById(
-    "register-form-container"
+AOS.init({ duration: 1000, once: false, mirror: true });
+
+// 2. Màn hình chờ
+window.onload = () => {
+  document.getElementById("loader").style.display = "none";
+};
+
+// 3. Con trỏ chuột tùy chỉnh
+const dot = document.getElementById("cursor-dot");
+const outline = document.getElementById("cursor-outline");
+window.addEventListener("mousemove", (e) => {
+  dot.style.left = e.clientX + "px";
+  dot.style.top = e.clientY + "px";
+  outline.animate(
+    { left: e.clientX + "px", top: e.clientY + "px" },
+    { duration: 500, fill: "forwards" }
   );
-  //mwor form dang kys
-  const showRegisterLink = document.getElementById("show-register");
-  const showLoginLink = document.getElementById("show-login");
-  const loginForm = document.getElementById("login-form");
-  const registerForm = document.getElementById("register-form");
-
-  // const toggleForms = (showLogin) => {
-  //   if (showLogin) {
-  //     registerFormContainer.classList.remove("form-active");
-  //     registerFormContainer.classList.add("form-hidden");
-  //     setTimeout(() => {
-  //       loginFormContainer.classList.remove("form-hidden");
-  //       loginFormContainer.classList.add("form-active");
-  //     }, 500);
-  //   } else {
-  //     loginFormContainer.classList.remove("form-active");
-  //     loginFormContainer.classList.add("form-hidden");
-  //     setTimeout(() => {
-  //       registerFormContainer.classList.remove("form-hidden");
-  //       registerFormContainer.classList.add("form-active");
-  //     }, 500);
-  //   }
-  // };
-
-  //suk ien
-  showRegisterLink.addEventListener("click", (e) => {
-    e.preventDefault();
-    toggleForms(false);
-  });
-
-  showLoginLink.addEventListener("click", (e) => {
-    e.preventDefault();
-    toggleForms(true);
-  });
-
-  // loginForm.addEventListener("submit", (e) => {
-  //   e.preventDefault();
-  //   const email = document.getElementById("loginEmail").value;
-  //   const password = document.getElementById("loginPassword").value;
-  //   console.log("Login attempt:", { email, password });
-  //   alert(`Logged in with Email: ${email}`);
-  // });
-
-  //form dang ky
-
-  // registerForm.addEventListener("submit", (e) => {
-  //   e.preventDefault();
-  //   const name = document.getElementById("registerName").value;
-  //   const email = document.getElementById("registerEmail").value;
-  //   const password = document.getElementById("registerPassword").value;
-  //   const confirmPassword = document.getElementById("confirmPassword").value;
-
-  //   if (password !== confirmPassword) {
-  //     alert("Mật khẩu không khớp!");
-  //     return;
-  //   }
-
-  //   console.log("Registration attempt:", { name, email, password });
-  //   alert(`Registered with Name: ${name}, Email: ${email}`);
-  // });
 });
+
+// 4. Thanh tiến trình cuộn
+window.onscroll = () => {
+  let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  let height =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+  let scrolled = (winScroll / height) * 100;
+  document.getElementById("scroll-bar").style.width = scrolled + "%";
+};
+
+// 5. Hiệu ứng Typewriter đơn giản
+const words = ["Website", "Landing Page", "Mobile App", "Thương Hiệu"];
+let i = 0;
+let j = 0;
+let currentWord = "";
+let isDeleting = false;
+function type() {
+  currentWord = words[i];
+  if (isDeleting) {
+    document.getElementById("typewriter").textContent = currentWord.substring(
+      0,
+      j - 1
+    );
+    j--;
+    if (j == 0) {
+      isDeleting = false;
+      i = (i + 1) % words.length;
+    }
+  } else {
+    document.getElementById("typewriter").textContent = currentWord.substring(
+      0,
+      j + 1
+    );
+    j++;
+    if (j == currentWord.length) {
+      isDeleting = true;
+      setTimeout(type, 2000);
+      return;
+    }
+  }
+  setTimeout(type, isDeleting ? 100 : 200);
+}
+type();

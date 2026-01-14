@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxEstate - Hệ Thống Bất Động Sản Cao Cấp</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #c0392b;
+            --light-bg: #f8f9fa;
+        }
+
+        body { font-family: 'Open Sans', sans-serif; overflow-x: hidden; }
+        h1, h2, h3, .navbar-brand { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+
+        /* Navbar Custom */
+        .navbar { transition: all 0.4s; padding: 15px 0; }
+        .nav-link { font-weight: 600; color: var(--primary-color) !important; margin: 0 10px; }
+        .nav-link:hover { color: var(--accent-color) !important; }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .search-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            margin-top: -80px;
+            z-index: 10;
+            position: relative;
+        }
+
+        /* Property Cards */
+        .property-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        .property-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .property-img-container { position: relative; }
+        .badge-status { position: absolute; top: 15px; left: 15px; }
+
+        /* Section Title */
+        .section-title { margin-bottom: 60px; text-align: center; }
+        .section-title h2 { position: relative; padding-bottom: 15px; }
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+        }
+
+        /* Stats Section */
+        .stats-section { background: var(--primary-color); color: white; padding: 80px 0; }
+
+        /* Services */
+        .service-box {
+            padding: 40px;
+            border-radius: 10px;
+            background: white;
+            border-bottom: 5px solid transparent;
+            transition: 0.3s;
+        }
+        .service-box:hover { border-bottom: 5px solid var(--accent-color); background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+        /* Testimonials */
+        .testimonial-item { font-style: italic; padding: 30px; border-left: 5px solid var(--accent-color); background: #eee; }
+
+        /* Footer */
+        footer { background: #1a1a1a; color: #bbb; padding: 80px 0 20px; }
+        footer h5 { color: white; margin-bottom: 25px; }
+        footer a { color: #bbb; text-decoration: none; transition: 0.3s; }
+        footer a:hover { color: var(--accent-color); }
+
+        /* Button hover */
+        .btn-danger {
+            transition: all 0.3s ease;
+        }
+        .btn-danger:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(192, 57, 43, 0.4);
+        }
+
+        /* Image zoom */
+        .property-card img {
+            transition: transform 0.5s ease;
+        }
+        .property-card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Navbar scroll effect */
+        .navbar.scrolled {
+            padding: 8px 0;
+            background: white !important;
+        }
+
+        .scroll-top { position: fixed; bottom: 20px; right: 20px; display: none; }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand text-uppercase" href="#">
+                <span class="text-danger">Lux</span>Estate
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Giới thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#properties">Dự án</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Dịch vụ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#news">Tin tức</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-danger text-white px-4 ms-lg-3" href="#contact">Liên hệ ngay</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. Hero Section -->
+    <header id="home" class="hero text-center">
+        <div class="container">
+            <h1 class="display-2" data-aos="fade-down">Tìm Kiếm Ngôi Nhà Mơ Ước</h1>
+            <p class="lead mb-5" data-aos="fade-up" data-aos-delay="200">
+                Hơn 10,000+ bất động sản cao cấp đang chờ đón bạn khám phá</p>
+        </div>
+    </header>
+
+    <!-- 3. Search Bar Section -->
+    <section class="container">
+        <div class="search-box animate__animated animate__fadeIn" data-aos="zoom-in">
+            <form class="row g-3">
+                <div class="col-md-4">
+                    <label class="form-label fw-bold"><i class="fas fa-search me-2"></i>Từ khóa</label>
+                    <input type="text" class="form-control" placeholder="Nhập địa điểm, tên dự án...">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label fw-bold">Loại hình</label>
+                    <select class="form-select">
+                        <option>Căn hộ Chung cư</option>
+                        <option>Biệt thự liền kề</option>
+                        <option>Đất nền dự án</option>
+                        <option>Shophouse</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label fw-bold">Khoảng giá</label>
+                    <select class="form-select">
+                        <option>Từ 2 - 5 tỷ</option>
+                        <option>Từ 5 - 10 tỷ</option>
+                        <option>Trên 10 tỷ</option>
+                    </select>
+                </div>
+                <div class="col-md-2 d-flex align-items-end">
+                    <button class="btn btn-danger w-100 py-2 fw-bold">TÌM KIẾM</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- 4. About Us -->
+    <section id="about" class="py-5 mt-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="img-fluid rounded-3 shadow" alt="About">
+                </div>
+                <div class="col-lg-6 ps-lg-5" data-aos="fade-left">
+                    <h6 class="text-danger fw-bold">VỀ CHÚNG TÔI</h6>
+                    <h2 class="mb-4">Hơn 15 Năm Kinh Nghiệm Trong Ngành Bất Động Sản</h2>
+                    <p class="text-muted">LuxEstate tự hào là đơn vị dẫn đầu trong việc cung cấp các giải pháp an cư lạc nghiệp và đầu tư sinh lời bền vững cho khách hàng. Chúng tôi cam kết mang lại những giá trị thực và pháp lý minh bạch nhất.</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-danger me-2"></i> Tư vấn pháp lý miễn phí</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-danger me-2"></i> Hỗ trợ vay vốn ngân hàng 70%</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-danger me-2"></i> Đội ngũ chuyên viên tận tâm</li>
+                    </ul>
+                    <button class="btn btn-outline-danger mt-3 px-4">Xem thêm</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Statistics -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 col-6 mb-4 mb-md-0"data-aos="fade-up">
+                    <h2 class="display-4 fw-bold">1500+</h2>
+                    <p class="mb-0">Dự án hoàn thành</p>
+                </div>
+                <div class="col-md-3 col-6 mb-4 mb-md-0"data-aos="fade-up">
+                    <h2 class="display-4 fw-bold">250+</h2>
+                    <p class="mb-0">Giải thưởng đạt được</p>
+                </div>
+                <div class="col-md-3 col-6"data-aos="fade-up">
+                    <h2 class="display-4 fw-bold">10k+</h2>
+                    <p class="mb-0">Khách hàng tin dùng</p>
+                </div>
+                <div class="col-md-3 col-6"data-aos="fade-up">
+                    <h2 class="display-4 fw-bold">500+</h2>
+                    <p class="mb-0">Chuyên viên tư vấn</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Featured Properties -->
+    <section id="properties" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="section-title">
+                <h6>DANH SÁCH DỰ ÁN</h6>
+                <h2>Dự Án Nổi Bật</h2>
+            </div>
+            <div class="row g-4">
+                <!-- Căn hộ 1 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="card property-card">
+                        <div class="property-img-container">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Hanoi">
+                            <span class="badge bg-danger badge-status">Đang mở bán</span>
+                        </div>
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold">The Sapphire Mansions</h5>
+                            <p class="text-muted small"><i class="fas fa-map-marker-alt me-2"></i>Quận 1, TP. Hồ Chí Minh</p>
+                            <div class="d-flex justify-content-between border-top pt-3">
+                                <span><i class="fas fa-bed text-danger me-1"></i> 3 PN</span>
+                                <span><i class="fas fa-bath text-danger me-1"></i> 2 WC</span>
+                                <span><i class="fas fa-expand text-danger me-1"></i> 120m²</span>
+                            </div>
+                            <h4 class="text-danger mt-3 fw-bold">8.5 Tỷ</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Căn hộ 2 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="card property-card">
+                        <div class="property-img-container">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Sapa">
+                            <span class="badge bg-primary badge-status">Sắp bàn giao</span>
+                        </div>
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold">Green Park Ocean View</h5>
+                            <p class="text-muted small"><i class="fas fa-map-marker-alt me-2"></i>Bãi Cháy, Hạ Long</p>
+                            <div class="d-flex justify-content-between border-top pt-3">
+                                <span><i class="fas fa-bed text-danger me-1"></i> 2 PN</span>
+                                <span><i class="fas fa-bath text-danger me-1"></i> 2 WC</span>
+                                <span><i class="fas fa-expand text-danger me-1"></i> 85m²</span>
+                            </div>
+                            <h4 class="text-danger mt-3 fw-bold">4.2 Tỷ</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Căn hộ 3 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="card property-card">
+                        <div class="property-img-container">
+                            <img src="https://images.unsplash.com/photo-1600607687940-c52fb694d398?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Danang">
+                            <span class="badge bg-success badge-status">Mới cập nhật</span>
+                        </div>
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold">Grand Central Villa</h5>
+                            <p class="text-muted small"><i class="fas fa-map-marker-alt me-2"></i>Sơn Trà, Đà Nẵng</p>
+                            <div class="d-flex justify-content-between border-top pt-3">
+                                <span><i class="fas fa-bed text-danger me-1"></i> 4 PN</span>
+                                <span><i class="fas fa-bath text-danger me-1"></i> 4 WC</span>
+                                <span><i class="fas fa-expand text-danger me-1"></i> 350m²</span>
+                            </div>
+                            <h4 class="text-danger mt-3 fw-bold">15.0 Tỷ</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-danger btn-lg px-5">Xem tất cả dự án</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Services -->
+    <section id="services" class="py-5">
+        <div class="container py-5">
+            <div class="section-title">
+                <h6>DỊCH VỤ CỦA CHÚNG TÔI</h6>
+                <h2>Giải Pháp Toàn Diện</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-box text-center" data-aos="flip-left">
+                        <div class="mb-4"><i class="fas fa-home fa-3x text-danger"></i></div>
+                        <h4>Mua Bán Nhà Đất</h4>
+                        <p class="text-muted">Kho dữ liệu khổng lồ với hàng ngàn tin đăng được xác thực mỗi ngày.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-box text-center">
+                        <div class="mb-4"><i class="fas fa-building fa-3x text-danger"></i></div>
+                        <h4>Cho Thuê Căn Hộ</h4>
+                        <p class="text-muted">Cung cấp các lựa chọn cho thuê từ bình dân đến cao cấp, đầy đủ nội thất.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-box text-center">
+                        <div class="mb-4"><i class="fas fa-chart-line fa-3x text-danger"></i></div>
+                        <h4>Tư Vấn Đầu Tư</h4>
+                        <p class="text-muted">Phân tích thị trường, đánh giá tiềm năng sinh lời cho nhà đầu tư cá nhân.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Testimonials -->
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h2 class="fw-bold">Khách Hàng Nói Gì Về Chúng Tôi</h2>
+                    <p class="text-muted mt-3">Sự hài lòng của khách hàng là thước đo thành công lớn nhất của LuxEstate.</p>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="testimonial-item p-4" data-aos="fade-up">
+                                <p>"Tôi đã tìm được căn hộ ưng ý chỉ sau 2 ngày làm việc cùng LuxEstate. Thủ tục cực kỳ nhanh gọn và minh bạch."</p>
+                                <div class="mt-3">
+                                    <h6 class="mb-0 fw-bold">Nguyễn Văn Nam</h6>
+                                    <small class="text-muted">CEO tại TechVina</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="testimonial-item p-4">
+                                <p>"Đội ngũ tư vấn rất chuyên nghiệp. Họ không chỉ bán nhà mà còn tư vấn rất kỹ về phong thủy và tài chính."</p>
+                                <div class="mt-3">
+                                    <h6 class="mb-0 fw-bold">Trần Thị Mai</h6>
+                                    <small class="text-muted">Kinh doanh tự do</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Partner Logos -->
+    <section class="py-5 bg-white border-bottom">
+        <div class="container">
+            <div class="row align-items-center text-center opacity-50">
+                <div class="col-md-2 col-4 mb-3"><i class="fab fa-google fa-3x"></i></div>
+                <div class="col-md-2 col-4 mb-3"><i class="fab fa-amazon fa-3x"></i></div>
+                <div class="col-md-2 col-4 mb-3"><i class="fab fa-microsoft fa-3x"></i></div>
+                <div class="col-md-2 col-4 mb-3"><i class="fab fa-airbnb fa-3x"></i></div>
+                <div class="col-md-2 col-4 mb-3"><i class="fab fa-slack fa-3x"></i></div>
+                <div class="col-md-2 col-4 mb-3"><i class="fab fa-apple fa-3x"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container py-5">
+            <div class="row shadow-lg rounded-4 overflow-hidden p-0">
+                <div class="col-lg-5 bg-danger p-5 text-white" data-aos="fade-right">
+                    <h3 class="mb-4">Thông Tin Liên Hệ</h3>
+                    <div class="d-flex mb-4">
+                        <i class="fas fa-map-marker-alt me-3 mt-1"></i>
+                        <p>123 Đường Lê Lợi, Phường Bến Thành, Quận 1, TP.HCM</p>
+                    </div>
+                    <div class="d-flex mb-4">
+                        <i class="fas fa-phone-alt me-3 mt-1"></i>
+                        <p>+84 900 123 456</p>
+                    </div>
+                    <div class="d-flex mb-4">
+                        <i class="fas fa-envelope me-3 mt-1"></i>
+                        <p>info@luxestate.com.vn</p>
+                    </div>
+                    <div class="mt-5">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-zalo fa-2x"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube fa-2x"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-7 p-5 bg-white" data-aos="fade-left">
+                    <h3 class="mb-4">Gửi Yêu Cầu Tư Vấn</h3>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control p-3 border-0 bg-light" placeholder="Họ và tên">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control p-3 border-0 bg-light" placeholder="Email">
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control p-3 border-0 bg-light" placeholder="Số điện thoại">
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control p-3 border-0 bg-light" rows="4" placeholder="Lời nhắn của bạn..."></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-danger w-100 py-3 fw-bold">GỬI NGAY</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="text-uppercase"><span class="text-danger">Lux</span>Estate</h5>
+                    <p>LuxEstate là thương hiệu bất động sản hàng đầu tại Việt Nam, mang đến giải pháp toàn diện cho người mua và người bán.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5>Dự án</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Căn hộ cao cấp</a></li>
+                        <li><a href="#">Biệt thự biển</a></li>
+                        <li><a href="#">Đất nền dự án</a></li>
+                        <li><a href="#">Shophouse</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5>Liên kết</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Về chúng tôi</a></li>
+                        <li><a href="#">Tin tức BĐS</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5>Đăng ký nhận tin</h5>
+                    <p>Nhận các ưu đãi mới nhất từ chúng tôi.</p>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control bg-dark border-0 text-white" placeholder="Email của bạn">
+                        <button class="btn btn-danger">Gửi</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-5 border-secondary">
+            <div class="text-center pt-3">
+                <p class="small">&copy; 2023 LuxEstate. Thiết kế bởi AI. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Top Button -->
+    <a href="#" class="btn btn-danger scroll-top shadow">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+        duration: 1000,
+        easing: 'ease-in-out',
+        once: true
+        });
+        // Smooth Scrolling for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+
+        // Show/Hide Scroll Top button
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                document.querySelector('.scroll-top').style.display = "block";
+            } else {
+                document.querySelector('.scroll-top').style.display = "none";
+            }
+        };
+    </script>
+</body>
+</html>

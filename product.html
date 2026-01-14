@@ -1,21 +1,27 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page Template</title>
+    <title>Landing Page Template - Vibrant Edition</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/style.css">
+    <!-- Thêm thư viện FontAwesome để hiển thị sao đẹp hơn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
+    <style>
+
+    </style>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top py-3">
         <div class="container">
-            <a class="navbar-brand fw-bold text-success fs-3" href="#">Landing Page</a>
+            <a class="navbar-brand fw-bold text-success fs-3" href="#">Landing <span class="text-dark">Page</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -28,24 +34,26 @@
                     <li class="nav-item"><a class="nav-link text-secondary hover-green px-3" href="#">Liên hệ</a></li>
                 </ul>
                 <div class="d-flex d-none d-lg-flex gap-3">
-                    <button class="btn btn-link text-secondary"><i class="bi bi-search fs-5"></i></button>
-                    <button class="btn btn-link text-secondary"><a href="/webTest/login.html"><i class="bi bi-person fs-5"></i></a></button>
-
+                    <button class="btn btn-link text-secondary hover-green"><i class="bi bi-search fs-5"></i></button>
+                    <button class="btn btn-link text-secondary hover-green"><a href="./login.html" class="text-secondary"><i class="bi bi-person fs-5"></i></a></button>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <div class="container mt-4">
-        <div class="card bg-white text-white border-0">
-            <img src="./assets/img/product/banner.jpg" class="card-img rounded-0" alt="Hero Banner">
+    <div class="container mt-4 fade-in-up">
+        <div class="card bg-white text-white border-0 shadow-lg">
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1350&q=80" class="card-img rounded-0" alt="Hero Banner" style="height: 300px; object-fit: cover;">
+            <div class="card-img-overlay d-flex align-items-center justify-content-center bg-dark bg-opacity-25">
+                <h1 class="display-4 fw-bold text-shadow">CHÀO MỪNG ĐẾN VỚI LADY COSMETIC</h1>
+            </div>
         </div>
     </div>
 
     <!-- Main Content -->
     <main class="container my-5">
-        <div class="row bg-white p-4 rounded shadow-sm">
+        <div class="row bg-white p-4 rounded shadow-sm fade-in-up">
             <!-- Left: Product Gallery -->
             <div class="col-md-7">
                 <div class="mb-3">
@@ -67,67 +75,66 @@
                 </div>
             </div>
 
-            <!-- Righ Product Info -->
+            <!-- Right Product Info -->
             <div class="col-md-5 ps-md-4 mt-4 mt-md-0">
-                <h2 class="fw-bold text-uppercase">Website Mỹ Phẩm</h2>
-                <h3 class="text-danger fw-bold my-3">3,500,000đ</h3>
+                <h2 class="fw-bold text-uppercase text-success">Website Mỹ Phẩm Cao Cấp</h2>
+                <div class="d-flex align-items-center mb-2">
+                    <div class="text-warning me-2">
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                    </div>
+                    <span class="text-muted small">(4,504 đánh giá)</span>
+                </div>
+                <h3 class="text-danger fw-bold my-3 fs-1">3,500,000đ</h3>
                 
                 <div class="d-grid gap-2 d-md-block mb-4">
-                    <button class="btn btn-add-cart btn-lg px-4 me-md-2 mb-2 mb-md-0">Thêm vào giỏ</button>
-                    <button class="btn btn-buy-now btn-lg px-4">Mua Ngay</button>
+                    <button class="btn btn-add-cart btn-lg px-4 me-md-2 mb-2 mb-md-0 shadow">Thêm vào giỏ</button>
+                    <button class="btn btn-buy-now btn-lg px-4 shadow">Mua Ngay</button>
                 </div>
 
-                <div class="mb-4">
-                    <p class="mb-1"><strong>Tư vấn bán hàng:</strong> <span class="text-danger fw-bold">0987.654.321</span></p>
+                <div class="alert alert-success border-0 bg-opacity-10 d-flex align-items-center">
+                    <i class="bi bi-headset fs-3 me-3"></i>
+                    <div>
+                        <strong>Tư vấn bán hàng:</strong> <br>
+                        <span class="text-danger fw-bold fs-5">0987.654.321</span>
+                    </div>
                 </div>
 
-                <div class="card border-0 bg-light p-3 text-center" style="width: 200px;">
-                    <img src="./assets/img/product/qrscan.jpg" class="img-fluid mx-auto" alt="QR Code">
+                <div class="card border-0 bg-light p-3 text-center shadow-sm" style="width: 200px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg" class="img-fluid mx-auto" alt="QR Code">
                     <small class="text-muted mt-2 d-block">Quét mã để xem trên điện thoại</small>
                 </div>
             </div>
         </div>
 
         <!-- Reviews Section -->
-        <div class="row bg-white p-4 rounded shadow-sm mt-4">
-            <h4 class="fw-bold mb-4">Đánh giá sản phẩm</h4>
+        <div class="row bg-white p-4 rounded shadow-sm mt-4 fade-in-up">
+            <h4 class="fw-bold mb-4 border-start border-success border-4 ps-3">Đánh giá sản phẩm</h4>
             <div class="col-md-4 border-end">
-                <div class="d-flex align-items-center mb-2">
-                    <h1 class="fw-bold me-2 mb-0 text-warning">4.9</h1>
-                    <div class="text-warning">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+                <div class="text-center py-3">
+                    <h1 class="fw-bold text-warning display-3 mb-0">4.9</h1>
+                    <div class="text-warning fs-4 mb-2">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
+                    <p class="text-muted">4504 Đánh giá</p>
                 </div>
-                <p class="text-muted">4504 Đánh giá</p>
 
-                <div class="d-flex align-items-center mb-1">
-                    <span class="me-2 small">5 <i class="fas fa-star text-warning"></i></span>
-                    <div class="progress flex-grow-1">
-                        <div class="progress-bar bg-warning" style="width: 90%"></div>
+                <div class="mt-2">
+                    <div class="d-flex align-items-center mb-1">
+                        <span class="me-2 small">5 <i class="fas fa-star text-warning"></i></span>
+                        <div class="progress flex-grow-1" style="height: 8px;">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 90%"></div>
+                        </div>
+                        <span class="ms-2 small">90%</span>
                     </div>
-                    <span class="ms-2 small">90%</span>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <span class="me-2 small">4 <i class="fas fa-star text-warning"></i></span>
-                    <div class="progress flex-grow-1">
-                        <div class="progress-bar bg-warning" style="width: 5%"></div>
+                    <div class="d-flex align-items-center mb-1">
+                        <span class="me-2 small">4 <i class="fas fa-star text-warning"></i></span>
+                        <div class="progress flex-grow-1" style="height: 8px;">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 5%"></div>
+                        </div>
+                        <span class="ms-2 small">5%</span>
                     </div>
-                    <span class="ms-2 small">5%</span>
                 </div>
-                <div class="d-flex align-items-center mb-1">
-                    <span class="me-2 small">3 <i class="fas fa-star text-warning"></i></span>
-                    <div class="progress flex-grow-1">
-                        <div class="progress-bar bg-warning" style="width: 2%"></div>
-                    </div>
-                    <span class="ms-2 small">2%</span>
-                </div>
-                <div class="d-flex align-items-center mb-3">
-                    <button class="btn btn-primary w-100 mt-3"><i class="fas fa-pen me-2"></i>Viết đánh giá</button>
-                </div>
+                <button class="btn btn-success w-100 mt-4 shadow-sm"><i class="fas fa-pen me-2"></i>Viết đánh giá</button>
             </div>
 
             <div class="col-md-8 ps-md-4">
@@ -138,134 +145,66 @@
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                     </div>
-                    <p class="text-muted small mb-1">Giao diện đẹp, chuẩn SEO, load nhanh.</p>
+                    <p class="text-muted small mb-1">Giao diện đẹp, chuẩn SEO, load nhanh. Rất hài lòng!</p>
                     <div class="small">
-                        <a href="#" class="text-decoration-none me-3"><i class="fas fa-thumbs-up"></i> Hữu ích (5)</a>
-                        <a href="#" class="text-decoration-none"><i class="fas fa-comment"></i> Thảo luận</a>
+                        <a href="#" class="text-decoration-none me-3 text-success"><i class="fas fa-thumbs-up"></i> Hữu ích (5)</a>
+                        <a href="#" class="text-decoration-none text-secondary"><i class="fas fa-comment"></i> Thảo luận</a>
                     </div>
                 </div>
-                <div class="mb-3 border-bottom pb-3">
-                    <div class="d-flex justify-content-between">
-                        <strong>Trần Thị B</strong>
-                        <div class="text-warning small">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-muted small mb-1">Rất hài lòng với template này, support nhiệt tình.</p>
-                    <div class="small">
-                        <a href="#" class="text-decoration-none me-3"><i class="fas fa-thumbs-up"></i> Hữu ích (2)</a>
-                        <a href="#" class="text-decoration-none"><i class="fas fa-comment"></i> Thảo luận</a>
-                    </div>
-                </div>
-                 <button class="btn btn-light w-100 text-primary fw-bold">Xem tất cả đánh giá</button>
+                <button class="btn btn-light w-100 text-success fw-bold">Xem tất cả đánh giá</button>
             </div>
         </div>
 
         <!-- Related Products -->
         <div class="mt-5">
-            <h3 class="section-title">Có thể bạn sẽ thích</h3>
+            <h3 class="section-title text-center">Có thể bạn sẽ thích</h3>
             <div class="row g-4">
-                <!-- Product 1 -->
+                <!-- Product Card Template -->
                 <div class="col-md-3 col-sm-6">
-                    <div class="card h-100">
-                        <img src="./assets/img/product/sp1.jpg" class="card-img-top" alt="...">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="...">
                         <div class="card-body text-center">
-                            <h5 class="card-title text-uppercase text-secondary small">Trang Tin Tức</h5>
+                            <h5 class="card-title text-uppercase fw-bold text-dark small">Trang Tin Tức</h5>
                             <div class="mt-3">
-                                <a href="#" class="btn btn-pink btn-sm px-3">Xem</a>
-                                <a href="#" class="btn btn-pink btn-sm px-3">Chi Tiết</a>
+                                <a href="#" class="btn btn-pink btn-sm px-3 rounded-pill shadow-sm">Xem</a>
+                                <a href="#" class="btn btn-outline-dark btn-sm px-3 rounded-pill shadow-sm">Chi Tiết</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                 <!-- Product 2 -->
-                 <div class="col-md-3 col-sm-6">
-                    <div class="card h-100">
-                        <img src="./assets/img/product/sp2.jpg" class="card-img-top" alt="...">
+                <!-- Repeat for other products -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="...">
                         <div class="card-body text-center">
-                            <h5 class="card-title text-uppercase text-secondary small">Trang Quảng Bá</h5>
+                            <h5 class="card-title text-uppercase fw-bold text-dark small">Trang Bán Hàng</h5>
                             <div class="mt-3">
-                                <a href="#" class="btn btn-pink btn-sm px-3">Xem</a>
-                                <a href="#" class="btn btn-pink btn-sm px-3">Chi Tiết</a>
+                                <a href="#" class="btn btn-pink btn-sm px-3 rounded-pill">Xem</a>
+                                <a href="#" class="btn btn-outline-dark btn-sm px-3 rounded-pill">Chi Tiết</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                 <!-- Product 3 -->
-                 <div class="col-md-3 col-sm-6">
-                    <div class="card h-100">
-                        <img src="./assets/img/product/sp3.jpg" class="card-img-top" alt="...">
+                <div class="col-md-3 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="...">
                         <div class="card-body text-center">
-                            <h5 class="card-title text-uppercase text-secondary small">Trang Bán Hàng</h5>
+                            <h5 class="card-title text-uppercase fw-bold text-dark small">Trang Thời Trang</h5>
                             <div class="mt-3">
-                                <a href="#" class="btn btn-pink btn-sm px-3">Xem</a>
-                                <a href="#" class="btn btn-pink btn-sm px-3">Chi Tiết</a>
+                                <a href="#" class="btn btn-pink btn-sm px-3 rounded-pill">Xem</a>
+                                <a href="#" class="btn btn-outline-dark btn-sm px-3 rounded-pill">Chi Tiết</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                 <!-- Product 4 -->
-                 <div class="col-md-3 col-sm-6">
-                    <div class="card h-100">
-                        <img src="./assets/img/product/sp44.jpg" class="card-img-top" alt="...">
+                <div class="col-md-3 col-sm-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="...">
                         <div class="card-body text-center">
-                            <h5 class="card-title text-uppercase text-secondary small">Trang Nội Thất</h5>
+                            <h5 class="card-title text-uppercase fw-bold text-dark small">Trang BĐS</h5>
                             <div class="mt-3">
-                                <a href="#" class="btn btn-pink btn-sm px-3">Xem</a>
-                                <a href="#" class="btn btn-pink btn-sm px-3">Chi Tiết</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                 <!-- Product 5 -->
-                 <div class="col-md-3 col-sm-6">
-                    <div class="card h-100">
-                        <img src="./assets/img/product/sp5.jpg" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title text-uppercase text-secondary small">Trang Thời Trang</h5>
-                            <div class="mt-3">
-                                <a href="#" class="btn btn-pink btn-sm px-3">Xem</a>
-                                <a href="#" class="btn btn-pink btn-sm px-3">Chi Tiết</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                 <!-- Product 6 -->
-                 <div class="col-md-3 col-sm-6">
-                    <div class="card h-100">
-                        <img src="./assets/img/product/sp6.jpg" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title text-uppercase text-secondary small">Trang Giáo Dục</h5>
-                            <div class="mt-3">
-                                <a href="#" class="btn btn-pink btn-sm px-3">Xem</a>
-                                <a href="#" class="btn btn-pink btn-sm px-3">Chi Tiết</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                 <!-- Product 7 -->
-                 <div class="col-md-3 col-sm-6">
-                    <div class="card h-100">
-                        <img src="./assets/img/product/sp7.jpg" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title text-uppercase text-secondary small">Trang Du Lịch</h5>
-                            <div class="mt-3">
-                                <a href="#" class="btn btn-pink btn-sm px-3">Xem</a>
-                                <a href="#" class="btn btn-pink btn-sm px-3">Chi Tiết</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                 <!-- Product 8 -->
-                 <div class="col-md-3 col-sm-6">
-                    <div class="card h-100">
-                        <img src="./assets/img/product/sp8.jpg" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                            <h5 class="card-title text-uppercase text-secondary small">Trang BĐS</h5>
-                            <div class="mt-3">
-                                <a href="#" class="btn btn-pink btn-sm px-3">Xem</a>
-                                <a href="#" class="btn btn-pink btn-sm px-3">Chi Tiết</a>
+                                <a href="#" class="btn btn-pink btn-sm px-3 rounded-pill">Xem</a>
+                                <a href="#" class="btn btn-outline-dark btn-sm px-3 rounded-pill">Chi Tiết</a>
                             </div>
                         </div>
                     </div>
@@ -274,62 +213,80 @@
         </div>
     </main>
 
-        <!-- Footer -->
-     <footer class="bg-dark text-light pt-5 pb-4">
-            <div class="container">
-                <div class="row g-4">
-                    <!-- About -->
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="fw-bold mb-3">Landing Page</h5>
-                        <p class="small text-secondary mb-4">
-                            Chúng tôi cung cấp giải pháp thiết kế website chuyên nghiệp, giúp doanh nghiệp của bạn bứt phá doanh thu trong kỷ nguyên số.
-                        </p>
-                        <div class="d-flex gap-3">
-                            <a href="#" class="text-light hover-green"><i class="bi bi-facebook fs-5"></i></a>
-                            <a href="#" class="text-light hover-green"><i class="bi bi-twitter fs-5"></i></a>
-                            <a href="#" class="text-light hover-green"><i class="bi bi-instagram fs-5"></i></a>
-                        </div>
-                    </div>
-                    <!-- Links -->
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="fw-bold mb-3">Liên kết</h5>
-                        <ul class="list-unstyled small text-secondary">
-                            <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">Trang chủ</a></li>
-                            <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">Giới thiệu</a></li>
-                            <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">Dịch vụ</a></li>
-                            <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">Bảng giá</a></li>
-                            <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">Tin tức</a></li>
-                        </ul>
-                    </div>
-                    <!-- Services -->
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="fw-bold mb-3">Dịch vụ</h5>
-                        <ul class="list-unstyled small text-secondary">
-                            <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">Thiết kế Website</a></li>
-                            <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">Marketing Online</a></li>
-                            <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">SEO trọn gói</a></li>
-                            <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">Chăm sóc Fanpage</a></li>
-                        </ul>
-                    </div>
-                    <!-- Contact -->
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="fw-bold mb-3">Liên hệ</h5>
-                        <ul class="list-unstyled small text-secondary">
-                            <li class="mb-3 d-flex"><i class="bi bi-geo-alt text-success me-2"></i>Số 123, Đường ABC, Quận XYZ, TP. Hồ Chí Minh</li>
-                            <li class="mb-3 d-flex"><i class="bi bi-telephone text-success me-2"></i>090 123 4567</li>
-                            <li class="mb-3 d-flex"><i class="bi bi-envelope text-success me-2"></i>contact@landingpage.com</li>
-                        </ul>
+    <!-- Footer -->
+    <footer class="bg-dark text-light pt-5 pb-4">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="fw-bold mb-3 text-success">LADY COSMETIC</h5>
+                    <p class="small text-secondary mb-4">
+                        Giải pháp thiết kế website chuyên nghiệp, hỗ trợ doanh nghiệp bứt phá doanh thu.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-light hover-green"><i class="bi bi-facebook fs-5"></i></a>
+                        <a href="#" class="text-light hover-green"><i class="bi bi-instagram fs-5"></i></a>
+                        <a href="#" class="text-light hover-green"><i class="bi bi-tiktok fs-5"></i></a>
                     </div>
                 </div>
-                <div class="border-top border-secondary mt-5 pt-4 text-center small text-secondary">
-                    <p>&copy; 2024 Landing Page. All rights reserved.</p>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="fw-bold mb-3">Liên kết</h5>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">Trang chủ</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">Sản phẩm</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">Bảng giá</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="fw-bold mb-3">Dịch vụ</h5>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">Thiết kế Website</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-secondary hover-white">Marketing Online</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="fw-bold mb-3">Liên hệ</h5>
+                    <ul class="list-unstyled small text-secondary">
+                        <li class="mb-3 d-flex"><i class="bi bi-geo-alt text-success me-2"></i>Số 123, Đường ABC, Quận XYZ, TP. HCM</li>
+                        <li class="mb-3 d-flex"><i class="bi bi-telephone text-success me-2"></i>090 123 4567</li>
+                    </ul>
                 </div>
             </div>
+            <div class="border-top border-secondary mt-5 pt-4 text-center small text-secondary">
+                <p>&copy; 2024 ladycosmetic. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
     
-        <!-- Bootstrap Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="./script.js"></script>
-    <script type="module" src="/index.tsx"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Hàm thay đổi ảnh chính và giữ nguyên class/id yêu cầu
+        function changeImage(element) {
+            // Lấy ID mainImage
+            const mainImg = document.getElementById('mainImage');
+            mainImg.src = element.src;
+
+            // Hiệu ứng Fade cho ảnh chính
+            mainImg.style.opacity = '0';
+            setTimeout(() => {
+                mainImg.style.opacity = '1';
+            }, 50);
+
+            // Cập nhật trạng thái active cho thumbnail
+            document.querySelectorAll('.product-thumb').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            element.classList.add('active');
+        }
+
+        // Hiệu ứng Scroll Navbar
+        window.onscroll = function() {
+            const nav = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-white', 'shadow');
+            } else {
+                nav.classList.remove('shadow');
+            }
+        };
+    </script>
 </body>
 </html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY SHOP - Đẳng Cấp Thời Trang</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --dark-glass: rgba(0, 0, 0, 0.6);
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            overflow-x: hidden;
+            background-color: #f8fafc;
+        }
+
+        /* --- BACKGROUND BLOBS (Hiệu ứng nền cá tính) --- */
+        .blob-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .blob {
+            position: absolute;
+            width: 500px; height: 500px;
+            background: #6366f1;
+            filter: blur(80px);
+            opacity: 0.15;
+            border-radius: 50%;
+            animation: move 20s infinite alternate;
+        }
+        .blob-2 {
+            background: #ec4899;
+            right: -100px; top: 20%;
+            animation-duration: 15s;
+        }
+        @keyframes move {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(100px, 100px) scale(1.2); }
+        }
+
+        /* --- NAVBAR SMART --- */
+        .navbar {
+            transition: all 0.4s ease;
+            padding: 20px 0;
+            backdrop-filter: blur(10px);
+        }
+        .navbar.scrolled {
+            padding: 10px 0;
+            background: var(--dark-glass) !important;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-banner {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1920&auto=format&fit=crop') center/cover;
+            display: flex;
+            align-items: center;
+        }
+        .hero-title {
+            font-size: 5rem;
+            font-weight: 900;
+            background: linear-gradient(to right, #fff, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -2px;
+        }
+
+        /* --- CUSTOM BUTTON GLOW --- */
+        .btn-glow {
+            background: var(--primary-gradient);
+            border: none;
+            color: white;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            transition: 0.4s;
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+            transform: scale(1.05);
+            color: white;
+        }
+        .btn-glow::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.5s;
+        }
+        .btn-glow:hover::after { left: 100%; }
+
+        /* --- PRODUCT CARDS (Glassmorphism) --- */
+        .custom-product-card {
+            border: none;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .custom-product-card:hover {
+            transform: translateY(-15px) rotate(2deg);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .product-image-wrapper { height: 300px; overflow: hidden; }
+        .product-main-image { transition: 0.6s; }
+        .custom-product-card:hover .product-main-image { transform: scale(1.2); filter: brightness(0.7); }
+
+        /* --- CATEGORY ICON ANIMATION --- */
+        .custom-category-card {
+            border-radius: 20px;
+            background: white;
+            border: none;
+            transition: 0.3s;
+        }
+        .custom-category-card:hover {
+            background: var(--primary-gradient);
+        }
+        .custom-category-card:hover h3, .custom-category-card:hover .category-icon {
+            color: white !important;
+            transform: translateY(-5px);
+        }
+
+        /* --- BEST SELLER STRIP --- */
+        .best-seller-section {
+            background: #000;
+            padding: 100px 0;
+            position: relative;
+        }
+        .custom-bestseller-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        /* --- TESTIMONIAL --- */
+        .custom-testimonial-card {
+            background: rgba(255,255,255,0.05);
+            border-left: 5px solid #a855f7;
+            border-radius: 15px;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hiệu ứng nền trôi nổi -->
+<div class="blob-container">
+    <div class="blob"></div>
+    <div class="blob blob-2"></div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold fs-2" href="#">MY <span style="color: #a855f7;">SHOP</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto fw-medium">
+                <li class="nav-item"><a class="nav-link active px-3" href="#">Trang chủ</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#products">Sản phẩm</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#about">Câu chuyện</a></li>
+                <li class="nav-item"><a class="nav-link btn btn-glow px-4 ms-lg-3 rounded-pill" href="#">Giỏ hàng <i class="fas fa-shopping-cart ms-2"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero-banner text-white text-center">
+        <div class="container">
+            <h1 class="hero-title" data-aos="zoom-out" data-aos-duration="1500">NEW ERA OF FASHION</h1>
+            <p class="lead mb-5 opacity-75 fs-4" data-aos="fade-up" data-aos-delay="500">Định nghĩa lại phong cách cá nhân của bạn với MY SHOP</p>
+            <div data-aos="fade-up" data-aos-delay="800">
+                <a href="#products" class="btn btn-glow btn-lg rounded-pill px-5 py-3 fw-bold shadow-lg">MUA SẮM NGAY <i class="fas fa-arrow-right ms-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="container my-5 py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-md-6" data-aos="fade-right">
+                <div class="position-relative">
+                    <img src="https://images.unsplash.com/photo-1523381235312-3a1647fa9921?q=80&w=800" alt="About" class="img-fluid rounded-4 shadow-2xl">
+                    <div class="position-absolute bottom-0 start-0 p-4 bg-white m-3 rounded-3 shadow" data-aos="fade-up">
+                        <h4 class="fw-bold mb-0">10K+</h4>
+                        <small class="text-muted">Khách hàng tin dùng</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" data-aos="fade-left">
+                <h2 class="display-5 fw-bold mb-4">Chúng tôi là ai?</h2>
+                <p class="text-secondary fs-5">MY SHOP không chỉ bán quần áo, chúng tôi bán sự tự tin. Mỗi sản phẩm được chọn lọc kỹ lưỡng để mang lại trải nghiệm hoàn hảo nhất cho khách hàng.</p>
+                <div class="mt-4">
+                    <div class="d-flex mb-3">
+                        <i class="fas fa-check-circle text-primary me-3 fs-4"></i>
+                        <span class="fw-medium">Chất liệu vải cao cấp nhập khẩu</span>
+                    </div>
+                    <div class="d-flex">
+                        <i class="fas fa-check-circle text-primary me-3 fs-4"></i>
+                        <span class="fw-medium">Đổi trả miễn phí trong 30 ngày</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CATEGORY ===== -->
+    <section class="container my-5 py-5">
+        <h2 class="display-6 fw-bold text-center mb-5" data-aos="fade-up">DANH MỤC TRENDING</h2>
+        <div class="row g-4">
+            <div class="col-md-3 col-6" data-aos="flip-left" data-aos-delay="100">
+                <div class="card p-4 text-center custom-category-card shadow-sm">
+                    <div class="fs-1 mb-3 category-icon text-primary"><i class="fas fa-tshirt"></i></div>
+                    <h3 class="h6 fw-bold text-uppercase">Áo Thun</h3>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="flip-left" data-aos-delay="200">
+                <div class="card p-4 text-center custom-category-card shadow-sm">
+                    <div class="fs-1 mb-3 category-icon text-primary"><i class="fas fa-person-dress"></i></div>
+                    <h3 class="h6 fw-bold text-uppercase">Váy Nữ</h3>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="flip-left" data-aos-delay="300">
+                <div class="card p-4 text-center custom-category-card shadow-sm">
+                    <div class="fs-1 mb-3 category-icon text-primary"><i class="fas fa-shoe-prints"></i></div>
+                    <h3 class="h6 fw-bold text-uppercase">Giày Sneaker</h3>
+                </div>
+            </div>
+            <div class="col-md-3 col-6" data-aos="flip-left" data-aos-delay="400">
+                <div class="card p-4 text-center custom-category-card shadow-sm">
+                    <div class="fs-1 mb-3 category-icon text-primary"><i class="fas fa-hat-cowboy"></i></div>
+                    <h3 class="h6 fw-bold text-uppercase">Phụ Kiện</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRODUCT LIST ===== -->
+    <section id="products" class="container my-5 py-5">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold" data-aos="fade-up">BST MỚI NHẤT</h2>
+            <p class="text-muted" data-aos="fade-up" data-aos-delay="200">Những thiết kế dẫn đầu xu hướng 2024</p>
+        </div>
+        <div class="row g-4">
+            <!-- Một Product mẫu -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="card custom-product-card shadow-sm">
+                    <div class="product-image-wrapper position-relative">
+                        <img src="https://images.unsplash.com/photo-1576566582419-573024840d02?q=80&w=400" alt="Product" class="product-main-image w-100 h-100 object-fit-cover">
+                        <span class="position-absolute top-0 start-0 bg-danger text-white px-3 py-1 m-3 rounded-pill fw-bold">SALE</span>
+                    </div>
+                    <div class="card-body p-4 text-center">
+                        <h3 class="h6 fw-bold mb-2">Áo Khoác Urban Style</h3>
+                        <p class="text-primary fw-bold fs-5 mb-3">750.000₫</p>
+                        <button class="btn btn-dark w-100 rounded-pill py-2 fw-bold btn-glow">MUA NGAY</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Copy các sản phẩm tương tự ở đây -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="card custom-product-card shadow-sm">
+                    <div class="product-image-wrapper"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=400" class="product-main-image w-100 h-100 object-fit-cover"></div>
+                    <div class="card-body p-4 text-center">
+                        <h3 class="h6 fw-bold mb-2">Váy Summer Light</h3>
+                        <p class="text-primary fw-bold fs-5 mb-3">450.000₫</p>
+                        <button class="btn btn-dark w-100 rounded-pill py-2 fw-bold btn-glow">MUA NGAY</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="card custom-product-card shadow-sm">
+                    <div class="product-image-wrapper"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=400" class="product-main-image w-100 h-100 object-fit-cover"></div>
+                    <div class="card-body p-4 text-center">
+                        <h3 class="h6 fw-bold mb-2">Sneaker Red Dragon</h3>
+                        <p class="text-primary fw-bold fs-5 mb-3">1.200.000₫</p>
+                        <button class="btn btn-dark w-100 rounded-pill py-2 fw-bold btn-glow">MUA NGAY</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="card custom-product-card shadow-sm">
+                    <div class="product-image-wrapper"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=400" class="product-main-image w-100 h-100 object-fit-cover"></div>
+                    <div class="card-body p-4 text-center">
+                        <h3 class="h6 fw-bold mb-2">Bộ Vest Doanh Nhân</h3>
+                        <p class="text-primary fw-bold fs-5 mb-3">2.500.000₫</p>
+                        <button class="btn btn-dark w-100 rounded-pill py-2 fw-bold btn-glow">MUA NGAY</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BEST SELLER (Marquee Style Animation) ===== -->
+    <section class="best-seller-section">
+        <div class="container text-center text-white overflow-hidden">
+            <h2 class="display-4 fw-bold mb-5" data-aos="fade-right">TOP SELLING ITEMS</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-3" data-aos="zoom-in"><div class="p-4 custom-bestseller-item rounded-3">🔥 DENIM JACKET</div></div>
+                <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200"><div class="p-4 custom-bestseller-item rounded-3">🔥 LEATHER BAG</div></div>
+                <div class="col-md-3" data-aos="zoom-in" data-aos-delay="400"><div class="p-4 custom-bestseller-item rounded-3">🔥 SUNGLASSES</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIAL ===== -->
+    <section class="py-5 my-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-right">
+                    <div class="p-4 custom-testimonial-card shadow-sm h-100 bg-white">
+                        <div class="text-warning mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="fst-italic">"Sản phẩm cực chất, tôi rất thích cách đóng gói của shop."</p>
+                        <h6 class="fw-bold">— Minh Hoàng</h6>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="p-4 custom-testimonial-card shadow-sm h-100 bg-white">
+                        <div class="text-warning mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="fst-italic">"Giao hàng nhanh như chớp. Sẽ ủng hộ shop dài dài."</p>
+                        <h6 class="fw-bold">— Thùy Linh</h6>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-left">
+                    <div class="p-4 custom-testimonial-card shadow-sm h-100 bg-white">
+                        <div class="text-warning mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="fst-italic">"Chất vải mặc rất mát, đúng như quảng cáo."</p>
+                        <h6 class="fw-bold">— Quốc Anh</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SUBSCRIBE ===== -->
+    <section class="py-5 text-center bg-white" data-aos="zoom-in">
+        <div class="container py-5 rounded-5 shadow-lg" style="background: var(--primary-gradient);">
+            <h2 class="display-5 fw-bold text-white mb-4">NHẬN ƯU ĐÃI 20%</h2>
+            <p class="text-white opacity-75 mb-4 px-3">Để lại email để nhận mã giảm giá và thông báo về BST mới nhất.</p>
+            <div class="d-flex flex-column flex-sm-row gap-2 justify-content-center align-items-center max-w-lg mx-auto p-3">
+                <input type="email" placeholder="Email của bạn..." class="form-control form-control-lg rounded-pill px-4 border-0">
+                <button class="btn btn-dark btn-lg rounded-pill px-5 fw-bold shadow">GỬI NGAY</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-dark text-white py-5">
+    <div class="container text-center">
+        <h3 class="fw-bold mb-4">MY <span class="text-primary">SHOP</span></h3>
+        <div class="mb-4">
+            <a href="#" class="text-white mx-3 fs-4"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-white mx-3 fs-4"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-white mx-3 fs-4"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p class="text-secondary">© <span id="year"></span> MY SHOP. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- AOS Library -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+    // Khởi tạo hiệu ứng AOS
+    AOS.init({
+        duration: 800,
+        once: false,
+        mirror: true
+    });
+
+    // Thanh menu đổi màu khi cuộn
+    window.addEventListener('scroll', function() {
+        const nav = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled', 'shadow');
+        } else {
+            nav.classList.remove('scrolled', 'shadow');
+        }
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
