@@ -144,3 +144,16 @@ function type() {
   setTimeout(type, isDeleting ? 100 : 200);
 }
 type();
+
+//phaanf aboutt
+// Thay đổi Navbar khi Scroll
+window.addEventListener("scroll", function () {
+  const navbar = document.querySelector(".navbar");
+  if (window.scrollY > 50) {
+    navbar.classList.add("shadow-sm");
+    navbar.style.padding = "10px 0";
+  } else {
+    navbar.classList.remove("shadow-sm");
+    navbar.style.padding = "20px 0";
+  }
+});

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Liên hệ | Kết nối với Đội ngũ Chuyên gia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style.css">
+    <style>
+        :root {
+            --primary: #0d6efd;
+            --secondary: #6610f2;
+            --dark: #0f172a;
+            --light-bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #334155;
+            background-color: #fff;
+        }
+
+        /* Navbar */
+        .navbar {
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.9) !important;
+        }
+        footer { background: #0f172a; color: #94a3b8; }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary fs-3" href="#">Landing Page</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto fw-semibold">
+                    <li class="nav-item"><a class="nav-link px-3" href="./index.html">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="./about.html">Giới thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="./services.html">Dịch vụ</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="./shop.html">Sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 active text-primary" href="#">Liên hệ</a></li>
+                </ul>
+                <button class="btn btn-primary rounded-pill px-4">Bắt đầu ngay</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. HERO CONTACT -->
+    <section class="hero-contact">
+        <div class="container" data-aos="zoom-in">
+            <h1 class="display-3 fw-bold mb-3">Liên Hệ Với Chúng Tôi</h1>
+            <p class="lead opacity-75 mx-auto w-75">
+                Bạn có ý tưởng? Chúng tôi có giải pháp. Hãy để lại lời nhắn, đội ngũ chuyên gia của chúng tôi sẽ phản hồi bạn trong vòng 24h.
+            </p>
+        </div>
+    </section>
+
+    <!-- 2. CONTACT INFO CARDS -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="contact-info-card text-center">
+                        <div class="icon-box mx-auto"><i class="bi bi-geo-alt"></i></div>
+                        <h4>Văn phòng chính</h4>
+                        <p class="text-muted">Tòa nhà Innovation, Công viên phần mềm Quang Trung, Quận 12, TP. Hồ Chí Minh</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-info-card text-center">
+                        <div class="icon-box mx-auto"><i class="bi bi-telephone"></i></div>
+                        <h4>Hotline hỗ trợ</h4>
+                        <p class="text-muted">Kinh doanh: 1900 1234<br>Kỹ thuật: 0909 888 999</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-info-card text-center">
+                        <div class="icon-box mx-auto"><i class="bi bi-envelope-at"></i></div>
+                        <h4>Email liên hệ</h4>
+                        <p class="text-muted">contact@landingpage.com<br>support@landingpage.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. FORM & MAP -->
+    <section class="section-padding bg-soft">
+        <div class="container">
+            <div class="row g-5">
+                <!-- Contact Form -->
+                <div class="col-lg-7" data-aos="fade-right">
+                    <div class="form-container">
+                        <h2 class="fw-bold mb-4">Gửi tin nhắn cho chúng tôi</h2>
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Họ và tên</label>
+                                    <input type="text" class="form-control" placeholder="Nguyễn Văn A" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Địa chỉ Email</label>
+                                    <input type="email" class="form-control" placeholder="name@example.com" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Số điện thoại</label>
+                                    <input type="tel" class="form-control" placeholder="0901234567">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Dịch vụ quan tâm</label>
+                                    <select class="form-select">
+                                        <option selected disabled>Chọn dịch vụ...</option>
+                                        <option>Thiết kế Landing Page</option>
+                                        <option>Tối ưu hóa CRO</option>
+                                        <option>Quảng cáo Google/FB</option>
+                                        <option>Gói Tổng thể</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold">Lời nhắn của bạn</label>
+                                <textarea class="form-control" rows="5" placeholder="Hãy mô tả yêu cầu của bạn..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5 shadow">Gửi yêu cầu ngay <i class="bi bi-send ms-2"></i></button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Google Map -->
+                <div class="col-lg-5" data-aos="fade-left">
+                    <div class="map-wrapper">
+                        <!-- Thay đổi src bằng link Google Map của bạn -->
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.4436614509935!2d106.6256914758694!3d10.85404475775878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317529de091e0a9d%3A0x6e9a0d8c7c943d0e!2zQ8O0bmcgdmnDqm4gcGjhuqduIG3hu4FtIFF1YW5nIFRydW5n!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. CHI NHÁNH KHÁC (Kéo dài nội dung) -->
+    <section class="section-padding">
+        <div class="container text-center mb-5">
+            <h2 class="display-6 fw-bold">Hệ thống văn phòng</h2>
+            <p class="text-muted">Chúng tôi có mặt tại các thành phố lớn để hỗ trợ bạn tốt nhất</p>
+        </div>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up">
+                    <div class="p-4 border rounded-4">
+                        <img src="https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?auto=format&fit=crop&q=80&w=400" class="img-fluid rounded-3 mb-3" alt="Hanoi">
+                        <h5 class="fw-bold">Chi nhánh Hà Nội</h5>
+                        <p class="small text-muted mb-0"><i class="bi bi-geo-alt me-2"></i>Quận Cầu Giấy, Hà Nội</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-4 border rounded-4">
+                        <img src="https://images.unsplash.com/photo-1559592481-74488ea01cf2?auto=format&fit=crop&q=80&w=400" class="img-fluid rounded-3 mb-3" alt="Danang">
+                        <h5 class="fw-bold">Chi nhánh Đà Nẵng</h5>
+                        <p class="small text-muted mb-0"><i class="bi bi-geo-alt me-2"></i>Quận Hải Châu, Đà Nẵng</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-4 border rounded-4">
+                        <img src="https://images.unsplash.com/photo-1518112390110-6012b1f5e2e8?auto=format&fit=crop&q=80&w=400" class="img-fluid rounded-3 mb-3" alt="Cantho">
+                        <h5 class="fw-bold">Chi nhánh Cần Thơ</h5>
+                        <p class="small text-muted mb-0"><i class="bi bi-geo-alt me-2"></i>Quận Ninh Kiều, Cần Thơ</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="p-4 border rounded-4">
+                        <img src="https://images.unsplash.com/photo-1596422846543-75c6fc18a593?auto=format&fit=crop&q=80&w=400" class="img-fluid rounded-3 mb-3" alt="Singapore">
+                        <h5 class="fw-bold">VP Singapore</h5>
+                        <p class="small text-muted mb-0"><i class="bi bi-geo-alt me-2"></i>Marina Bay, Singapore</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FAQ LIÊN HỆ -->
+    <section class="section-padding faq-contact">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
+                    <h2 class="display-5 fw-bold mb-4">Bạn vẫn còn thắc mắc?</h2>
+                    <p class="lead text-muted">Nếu không tìm thấy câu trả lời bên cạnh, hãy gọi cho chúng tôi ngay.</p>
+                    <a href="tel:19001234" class="btn btn-outline-primary btn-lg rounded-pill mt-3 px-4">Gọi 1900 1234</a>
+                </div>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="accordion accordion-flush" id="contactFAQ">
+                        <div class="accordion-item bg-transparent border-bottom py-2">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed bg-transparent fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#c1">
+                                    Mất bao lâu để tôi nhận được phản hồi?
+                                </button>
+                            </h2>
+                            <div id="c1" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
+                                <div class="accordion-body text-muted">
+                                    Chúng tôi cam kết phản hồi mọi yêu cầu qua email/biểu mẫu trong vòng tối đa 2 giờ làm việc.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-transparent border-bottom py-2">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed bg-transparent fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#c2">
+                                    Tôi có thể đặt lịch hẹn tư vấn trực tiếp không?
+                                </button>
+                            </h2>
+                            <div id="c2" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
+                                <div class="accordion-body text-muted">
+                                    Hoàn toàn được. Bạn có thể ghi chú vào phần lời nhắn hoặc gọi hotline để đặt lịch hẹn tại văn phòng của chúng tôi.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-transparent border-bottom py-2">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed bg-transparent fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#c3">
+                                    Có hỗ trợ khách hàng ở nước ngoài không?
+                                </button>
+                            </h2>
+                            <div id="c3" class="accordion-collapse collapse" data-bs-parent="#contactFAQ">
+                                <div class="accordion-body text-muted">
+                                    Có, chúng tôi hỗ trợ tư vấn qua Zoom/Google Meet cho khách hàng trên toàn cầu bất kể múi giờ.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FOOTER -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <h3 class="text-white fw-bold mb-0">Landing Page</h3>
+                    <p class="mb-0">Kết nối để vươn xa.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="d-flex justify-content-center justify-content-md-end gap-3 fs-4">
+                        <a href="#" class="text-white-50"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white-50"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white-50"><i class="bi bi-twitter-x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary opacity-25">
+            <div class="text-center">
+                <p class="mb-0 small">© 2026 Landing Page Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Xử lý gửi Form (Demo)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Cảm ơn bạn! Thông tin đã được gửi đi. Chúng tôi sẽ sớm liên hệ lại.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

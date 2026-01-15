@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Dịch vụ | Giải pháp Landing Page Chuyên Nghiệp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/style.css">
+    <style>
+        :root {
+            --primary: #0d6efd;
+            --secondary: #6610f2;
+            --dark: #0f172a;
+            --light-bg: #f8fafc;
+            --accent: #ffc107;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #334155;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Glassmorphism */
+        .navbar {
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.9) !important;
+        }
+
+
+
+        footer { background: #0f172a; color: #94a3b8; }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary fs-3" href="#">Landing Page</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto fw-semibold">
+                    <li class="nav-item"><a class="nav-link px-3" href="./index.html">Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="./about.html">Giới thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 active text-primary" href="#">Dịch vụ</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="./shop.html">Sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="./contact.html">Liên hệ</a></li>
+                </ul>
+                <button class="btn btn-primary rounded-pill px-4">Nhận báo giá</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-services text-center">
+        <div class="container" data-aos="fade-up">
+            <span class="section-title-sm text-white-50">Dịch vụ của chúng tôi</span>
+            <h1 class="display-3 fw-bold mb-4">Giải Pháp Digital Toàn Diện <br> Cho Sự Tăng Trưởng</h1>
+            <p class="lead mb-0 opacity-75 mx-auto w-75">
+                Chúng tôi cung cấp các gói dịch vụ từ thiết kế, phát triển đến tối ưu hóa Marketing giúp thương hiệu của bạn dẫn đầu thị trường.
+            </p>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up">
+                    <div class="service-card-premium">
+                        <div class="icon-circle-lg"><i class="bi bi-laptop"></i></div>
+                        <h3>Thiết kế Landing Page</h3>
+                        <p class="text-muted">Giao diện hiện đại, tối ưu UX/UI theo từng lĩnh vực kinh doanh. Đảm bảo tính duy nhất và nhận diện thương hiệu cực cao.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li><i class="bi bi-check2 text-primary me-2"></i>Thiết kế độc quyền</li>
+                            <li><i class="bi bi-check2 text-primary me-2"></i>Tương thích Mobile 100%</li>
+                            <li><i class="bi bi-check2 text-primary me-2"></i>Tối ưu tốc độ tải trang</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary rounded-pill">Chi tiết</a>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card-premium">
+                        <div class="icon-circle-lg"><i class="bi bi-graph-up"></i></div>
+                        <h3>Tối ưu Chuyển đổi (CRO)</h3>
+                        <p class="text-muted">Sử dụng dữ liệu và A/B Testing để tối ưu hóa hành trình khách hàng, biến người truy cập thành người mua hàng.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li><i class="bi bi-check2 text-primary me-2"></i>Phân tích Heatmap</li>
+                            <li><i class="bi bi-check2 text-primary me-2"></i>Tối ưu hóa Call-to-Action</li>
+                            <li><i class="bi bi-check2 text-primary me-2"></i>Viết Content bán hàng</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary rounded-pill">Chi tiết</a>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card-premium">
+                        <div class="icon-circle-lg"><i class="bi bi-megaphone"></i></div>
+                        <h3>Digital Marketing</h3>
+                        <p class="text-muted">Triển khai chiến dịch quảng cáo đa kênh (Google, Facebook, TikTok) dẫn traffic chất lượng về Landing Page.</p>
+                        <ul class="list-unstyled mb-4">
+                            <li><i class="bi bi-check2 text-primary me-2"></i>Quản trị quảng cáo</li>
+                            <li><i class="bi bi-check2 text-primary me-2"></i>Cài đặt Tracking mã chuyển đổi</li>
+                            <li><i class="bi bi-check2 text-primary me-2"></i>Báo cáo Real-time</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary rounded-pill">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-soft">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="section-title-sm">Bảng giá minh bạch</span>
+                <h2 class="display-5 fw-bold">Chọn gói giải pháp phù hợp</h2>
+            </div>
+            <div class="row g-4 align-items-center">
+                <!-- Basic -->
+                <div class="col-lg-4" data-aos="fade-right">
+                    <div class="pricing-card">
+                        <h5>Cơ bản (Starter)</h5>
+                        <div class="price-tag">3tr5 <span>/Landing Page</span></div>
+                        <p class="text-muted">Phù hợp cho cá nhân kinh doanh hoặc thử nghiệm sản phẩm mới.</p>
+                        <hr>
+                        <ul class="list-unstyled mb-5">
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Thiết kế theo mẫu chuẩn</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Miễn phí Hosting 1 năm</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Kết nối Form về Email</li>
+                            <li class="mb-3 text-muted text-decoration-line-through"><i class="bi bi-x-circle me-2"></i>Tối ưu chuẩn SEO</li>
+                        </ul>
+                        <button class="btn btn-outline-primary w-100 rounded-pill py-3">Đăng ký ngay</button>
+                    </div>
+                </div>
+                <!-- Premium -->
+                <div class="col-lg-4" data-aos="zoom-in">
+                    <div class="pricing-card featured">
+                        <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-4 rounded-pill px-3">Phổ biến nhất</span>
+                        <h5>Chuyên nghiệp (Pro)</h5>
+                        <div class="price-tag">7tr5 <span>/Landing Page</span></div>
+                        <p class="text-muted">Giải pháp tối ưu cho doanh nghiệp vừa và nhỏ để tăng trưởng doanh số.</p>
+                        <hr class="border-secondary">
+                        <ul class="list-unstyled mb-5">
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-warning me-2"></i>Thiết kế độc quyền UX/UI</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-warning me-2"></i>Tối ưu tốc độ Load & SEO</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-warning me-2"></i>Tích hợp Chatbot & Tracking</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-warning me-2"></i>Bảo hành kỹ thuật trọn đời</li>
+                        </ul>
+                        <button class="btn btn-primary w-100 rounded-pill py-3 shadow">Bắt đầu dự án</button>
+                    </div>
+                </div>
+                <!-- Enterprise -->
+                <div class="col-lg-4" data-aos="fade-left">
+                    <div class="pricing-card">
+                        <h5>Cao cấp (Ultimate)</h5>
+                        <div class="price-tag">Liên hệ <span>/Hệ thống</span></div>
+                        <p class="text-muted">Hệ thống Landing Page lớn, tích hợp CRM và Marketing Automation.</p>
+                        <hr>
+                        <ul class="list-unstyled mb-5">
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Không giới hạn số trang</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Tích hợp CRM (Salesforce/Hubspot)</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Hệ thống A/B Testing tự động</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Hỗ trợ 24/7 riêng biệt</li>
+                        </ul>
+                        <button class="btn btn-outline-primary w-100 rounded-pill py-3">Liên hệ tư vấn</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-6 fw-bold">So sánh chi tiết tính năng</h2>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-premium">
+                    <thead>
+                        <tr>
+                            <th>Tính năng</th>
+                            <th class="text-center">Starter</th>
+                            <th class="text-center text-primary">Pro</th>
+                            <th class="text-center">Ultimate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Thiết kế Mobile Responsive</td>
+                            <td class="text-center text-success"><i class="bi bi-check-lg"></i></td>
+                            <td class="text-center text-success"><i class="bi bi-check-lg"></i></td>
+                            <td class="text-center text-success"><i class="bi bi-check-lg"></i></td>
+                        </tr>
+                        <tr>
+                            <td>SSL & Bảo mật</td>
+                            <td class="text-center text-success"><i class="bi bi-check-lg"></i></td>
+                            <td class="text-center text-success"><i class="bi bi-check-lg"></i></td>
+                            <td class="text-center text-success"><i class="bi bi-check-lg"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Copywriting (Viết nội dung)</td>
+                            <td class="text-center text-danger"><i class="bi bi-dash"></i></td>
+                            <td class="text-center text-success"><i class="bi bi-check-lg"></i></td>
+                            <td class="text-center text-success"><i class="bi bi-check-lg"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Tích hợp API/CRM</td>
+                            <td class="text-center text-danger"><i class="bi bi-dash"></i></td>
+                            <td class="text-center text-danger"><i class="bi bi-dash"></i></td>
+                            <td class="text-center text-success"><i class="bi bi-check-lg"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light">
+        <div class="container text-center">
+            <span class="section-title-sm">Tech Stack</span>
+            <h2 class="mb-5">Công nghệ chúng tôi tin dùng</h2>
+            <div class="d-flex flex-wrap justify-content-center gap-5">
+                <img src="https://cdn.worldvectorlogo.com/logos/html-1.svg" class="tech-icon" alt="HTML5">
+                <img src="https://cdn.worldvectorlogo.com/logos/css-3.svg" class="tech-icon" alt="CSS3">
+                <img src="https://cdn.worldvectorlogo.com/logos/javascript-1.svg" class="tech-icon" alt="JS">
+                <img src="https://cdn.worldvectorlogo.com/logos/bootstrap-5-1.svg" class="tech-icon" alt="Bootstrap">
+                <img src="https://cdn.worldvectorlogo.com/logos/react-2.svg" class="tech-icon" alt="React">
+                <img src="https://cdn.worldvectorlogo.com/logos/google-ads-1.svg" class="tech-icon" alt="Google Ads">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" class="img-fluid rounded-5 shadow" alt="Support">
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <span class="section-title-sm">Cam kết 5 sao</span>
+                    <h2 class="display-5 mb-4">Sự hài lòng của bạn là ưu tiên số 1</h2>
+                    <div class="d-flex gap-4 mb-4">
+                        <div class="icon-circle-lg flex-shrink-0" style="width: 50px; height: 50px; font-size: 20px;"><i class="bi bi-shield-check"></i></div>
+                        <div>
+                            <h5>Đảm bảo tiến độ</h5>
+                            <p class="text-muted">Hoàn tiền 100% nếu bàn giao chậm trễ so với cam kết trong hợp đồng.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-4 mb-4">
+                        <div class="icon-circle-lg flex-shrink-0" style="width: 50px; height: 50px; font-size: 20px;"><i class="bi bi-clock-history"></i></div>
+                        <div>
+                            <h5>Hỗ trợ kỹ thuật 24/7</h5>
+                            <p class="text-muted">Xử lý mọi sự cố phát sinh ngay lập tức, đảm bảo website hoạt động ổn định.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-4">
+                        <div class="icon-circle-lg flex-shrink-0" style="width: 50px; height: 50px; font-size: 20px;"><i class="bi bi-gem"></i></div>
+                        <div>
+                            <h5>Chất lượng cao cấp</h5>
+                            <p class="text-muted">Không sử dụng các công cụ kéo thả kém chất lượng. Code tay tối ưu 100%.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding text-center bg-primary text-white">
+        <div class="container">
+            <h2 class="display-4 fw-bold mb-4">Hãy để chúng tôi hiện thực hóa ý tưởng của bạn</h2>
+            <p class="lead mb-5 opacity-75">Tư vấn miễn phí chiến lược Landing Page hiệu quả nhất cho lĩnh vực của bạn.</p>
+            <button class="btn btn-light btn-lg rounded-pill px-5 py-3 fw-bold text-primary">Liên hệ ngay <i class="bi bi-whatsapp ms-2"></i></button>
+        </div>
+    </section>
+
+    <footer class="py-5">
+        <div class="container text-center">
+            <p class="mb-0">© 2026 Landing Page Chuyên Nghiệp. Mang lại giải pháp số tốt nhất.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>

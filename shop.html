@@ -15,45 +15,7 @@
         :root { --primary-color: #198754; --accent-color: #0dcaf0; }
         body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; }
 
-        /* Animation cho Card */
-        .product-card {
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            border: 1px solid #eee !important;
-        }
-        .product-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
-        }
-        .img-card-wrapper { overflow: hidden; position: relative; }
-        .img-card-wrapper img { transition: transform 0.8s ease; }
-        .product-card:hover .img-card-wrapper img { transform: scale(1.15); }
-
-        /* Nút nổi bật */
-        .btn-cyan { background-color: var(--accent-color); color: white; border: none; transition: 0.3s; }
-        .btn-cyan:hover { background-color: #0baccc; transform: translateY(-2px); color: white; }
-
-        /* Section Icon */
-        .feature-icon {
-            width: 60px; height: 60px;
-            background: rgba(25, 135, 84, 0.1);
-            color: var(--primary-color);
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 12px; margin-bottom: 20px;
-            font-size: 1.5rem; transition: 0.3s;
-        }
-        .feature-box:hover .feature-icon { background: var(--primary-color); color: white; }
-
-        /* Stat Counter */
-        .stat-card { border-left: 4px solid var(--primary-color); padding: 20px; background: white; }
-
-        /* Floating Back to Top */
-        #btn-back-to-top {
-            position: fixed; bottom: 40px; right: 40px; display: none;
-            z-index: 100; border-radius: 50%; width: 50px; height: 50px;
-        }
-
-        /* Badge cho sản phẩm */
-        .badge-new { position: absolute; top: 10px; right: 10px; z-index: 2; }
+        
     </style>
 </head>
 <body>
@@ -68,10 +30,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto fw-medium">
                     <li class="nav-item"><a class="nav-link text-dark px-3" href="./index.html">Trang chủ</a></li>
-                    <li class="nav-item"><a class="nav-link text-secondary px-3" href="#">Giới thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link text-secondary px-3" href="./about.html">Giới thiệu</a></li>
                     <li class="nav-item"><a class="nav-link text-secondary px-3" href="./shop.html">Sản phẩm</a></li>
-                    <li class="nav-item"><a class="nav-link text-secondary px-3" href="#">Tin tức</a></li>
-                    <li class="nav-item"><a class="nav-link text-secondary px-3" href="#">Liên hệ</a></li>
+                    <li class="nav-item"><a class="nav-link text-secondary px-3" href="./services.html">Dich vu</a></li>
+                    <li class="nav-item"><a class="nav-link text-secondary px-3" href="./contact.html">Liên hệ</a></li>
                 </ul>
                 <div class="d-flex gap-3 align-items-center">
                     <div class="input-group d-none d-xl-flex">
@@ -226,104 +188,86 @@
                             </div>
                         </div>
                     </div>
-                    <!-- (Bạn có thể tiếp tục thêm card cho 4,5,6,7,8,9 tương tự ở đây) -->
-                                        <!-- Sản phẩm 4 -->
+                    <!-- Sản phẩm 4 -->
                     <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card h-100 border rounded-0 product-card bg-white">
-                            <div class="img-card-wrapper">
-                                <img src="./assets/img/shop/4.jpg" class="card-img-top" alt="Website học tập">
-                            </div>
-                            <div class="card-body text-center bg-danger bg-opacity-10 p-3 d-flex flex-column justify-content-center">
-                                <h6 class="card-title fw-medium mb-3 text-dark">Website học tập</h6>
+                        <div class="card h-100 product-card bg-white">
+                            <div class="img-card-wrapper"><img src="./assets/img/shop/4.jpg" class="card-img-top" alt="Website công nghệ"></div>
+                            <div class="card-body text-center p-3">
+                                <h6 class="card-title fw-bold">Website học tập</h6>
+                                <p class="text-success fw-bold mb-3">1.500.000đ</p>
                                 <div class="d-flex justify-content-center gap-2">
-                                    <a href="./product.html" class="btn btn-secondary btn-sm px-3 fw-bold border-0" style="font-size: 0.7rem; background-color: #e5e7eb; color: #374151;">CHI TIẾT</a>
-                                    <button class="btn btn-cyan btn-sm px-3 fw-bold border-0" style="font-size: 0.7rem;">DÙNG THỬ</button>
+                                    <a href="./product.html" class="btn btn-light btn-sm border fw-bold px-3">CHI TIẾT</a>
+                                    <button class="btn btn-cyan btn-sm fw-bold px-3">DÙNG THỬ</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- (Tương tự cho các sản phẩm còn lại 5, 6, 7, 8, 9...) -->
-                    <!-- Product 5 -->
+                    <!-- Sản phẩm 5 -->
                     <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card h-100 border rounded-0 product-card bg-white">
-                            <div class="img-card-wrapper">
-                                <img src="./assets/img/shop/5.jpg" class="card-img-top" alt="Website tin tức">
-                            </div>
-                            <div class="card-body text-center bg-danger bg-opacity-10 p-3 d-flex flex-column justify-content-center">
-                                <h6 class="card-title fw-medium mb-3 text-dark">Website đồ chơi </h6>
+                        <div class="card h-100 product-card bg-white">
+                            <div class="img-card-wrapper"><img src="./assets/img/shop/5.jpg" class="card-img-top" alt="Website công nghệ"></div>
+                            <div class="card-body text-center p-3">
+                                <h6 class="card-title fw-bold">Website đồ chơi</h6>
+                                <p class="text-success fw-bold mb-3">1.500.000đ</p>
                                 <div class="d-flex justify-content-center gap-2">
-                                    <a href="./product.html"><button class="btn btn-secondary btn-sm px-3 fw-bold border-0" style="font-size: 0.7rem; background-color: #e5e7eb; color: #374151;">CHI TIET</button></a>
-
-                                    <button class="btn btn-cyan btn-sm px-3 fw-bold border-0" style="font-size: 0.7rem;">DÙNG THỬ</button>
+                                    <a href="./product.html" class="btn btn-light btn-sm border fw-bold px-3">CHI TIẾT</a>
+                                    <button class="btn btn-cyan btn-sm fw-bold px-3">DÙNG THỬ</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Product 6 -->
+                    <!-- Sản phẩm 6 -->
                     <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card h-100 border rounded-0 product-card bg-white">
-                            <div class="img-card-wrapper">
-                                <img src="./assets/img/shop/6.jpg" class="card-img-top" alt="Website tin tức">
-                            </div>
-                            <div class="card-body text-center bg-danger bg-opacity-10 p-3 d-flex flex-column justify-content-center">
-                                <h6 class="card-title fw-medium mb-3 text-dark">Website đồ gia dụng </h6>
+                        <div class="card h-100 product-card bg-white">
+                            <div class="img-card-wrapper"><img src="./assets/img/shop/6.jpg" class="card-img-top" alt="Website công nghệ"></div>
+                            <div class="card-body text-center p-3">
+                                <h6 class="card-title fw-bold">Website đồ gia dụng</h6>
+                                <p class="text-success fw-bold mb-3">1.500.000đ</p>
                                 <div class="d-flex justify-content-center gap-2">
-                                    <a href="./product.html"><button class="btn btn-secondary btn-sm px-3 fw-bold border-0" style="font-size: 0.7rem; background-color: #e5e7eb; color: #374151;">CHI TIET</button></a>
-
-                                    <button class="btn btn-cyan btn-sm px-3 fw-bold border-0" style="font-size: 0.7rem;">DÙNG THỬ</button>
+                                    <a href="./product.html" class="btn btn-light btn-sm border fw-bold px-3">CHI TIẾT</a>
+                                    <button class="btn btn-cyan btn-sm fw-bold px-3">DÙNG THỬ</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Product 7 -->
+                    <!-- Sản phẩm 7 -->
                     <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card h-100 border rounded-0 product-card bg-white">
-                            <div class="img-card-wrapper">
-                                <img src="./assets/img/shop/7.jpg" class="card-img-top" alt="Website tin tức">
-                            </div>
-                            <div class="card-body text-center bg-danger bg-opacity-10 p-3 d-flex flex-column justify-content-center">
-                                <h6 class="card-title fw-medium mb-3 text-dark">Website đồ bếp </h6>
+                        <div class="card h-100 product-card bg-white">
+                            <div class="img-card-wrapper"><img src="./assets/img/shop/7.jpg" class="card-img-top" alt="Website công nghệ"></div>
+                            <div class="card-body text-center p-3">
+                                <h6 class="card-title fw-bold">Website đồ bếp</h6>
+                                <p class="text-success fw-bold mb-3">1.500.000đ</p>
                                 <div class="d-flex justify-content-center gap-2">
-                                    <a href="./product.html"><button class="btn btn-secondary btn-sm px-3 fw-bold border-0" style="font-size: 0.7rem; background-color: #e5e7eb; color: #374151;">CHI TIET</button></a>
-
-                                    <button class="btn btn-cyan btn-sm px-3 fw-bold border-0" style="font-size: 0.7rem;">DÙNG THỬ</button>
+                                    <a href="./product.html" class="btn btn-light btn-sm border fw-bold px-3">CHI TIẾT</a>
+                                    <button class="btn btn-cyan btn-sm fw-bold px-3">DÙNG THỬ</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Product 8 -->
+                    <!-- Sản phẩm 8 -->
                     <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card h-100 border rounded-0 product-card bg-white">
-                            <div class="img-card-wrapper">
-                                <img src="./assets/img/shop/8.jpg" class="card-img-top" alt="Website tin tức">
-                            </div>
-                            <div class="card-body text-center bg-danger bg-opacity-10 p-3 d-flex flex-column justify-content-center">
-                                <h6 class="card-title fw-medium mb-3 text-dark">Website quần áo </h6>
+                        <div class="card h-100 product-card bg-white">
+                            <div class="img-card-wrapper"><img src="./assets/img/shop/8.jpg" class="card-img-top" alt="Website công nghệ"></div>
+                            <div class="card-body text-center p-3">
+                                <h6 class="card-title fw-bold">Website quần áo</h6>
+                                <p class="text-success fw-bold mb-3">1.500.000đ</p>
                                 <div class="d-flex justify-content-center gap-2">
-                                    <a href="./product.html"><button class="btn btn-secondary btn-sm px-3 fw-bold border-0" style="font-size: 0.7rem; background-color: #e5e7eb; color: #374151;">CHI TIET</button></a>
-
-                                    <button class="btn btn-cyan btn-sm px-3 fw-bold border-0" style="font-size: 0.7rem;">DÙNG THỬ</button>
+                                    <a href="./product.html" class="btn btn-light btn-sm border fw-bold px-3">CHI TIẾT</a>
+                                    <button class="btn btn-cyan btn-sm fw-bold px-3">DÙNG THỬ</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Product 9 -->
+                    <!-- Sản phẩm 9 -->
                     <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card h-100 border rounded-0 product-card bg-white">
-                            <div class="img-card-wrapper">
-                                <img src="./assets/img/shop/9.jpg" class="card-img-top" alt="Website tin tức">
-                            </div>
-                            <div class="card-body text-center bg-danger bg-opacity-10 p-3 d-flex flex-column justify-content-center">
-                                <h6 class="card-title fw-medium mb-3 text-dark">Website hoa quả </h6>
+                        <div class="card h-100 product-card bg-white">
+                            <div class="img-card-wrapper"><img src="./assets/img/shop/9.jpg" class="card-img-top" alt="Website công nghệ"></div>
+                            <div class="card-body text-center p-3">
+                                <h6 class="card-title fw-bold">Website hoa quả</h6>
+                                <p class="text-success fw-bold mb-3">1.500.000đ</p>
                                 <div class="d-flex justify-content-center gap-2">
-                                    <a href="./product.html"><button class="btn btn-secondary btn-sm px-3 fw-bold border-0" style="font-size: 0.7rem; background-color: #e5e7eb; color: #374151;">CHI TIET</button></a>
-
-                                    <button class="btn btn-cyan btn-sm px-3 fw-bold border-0" style="font-size: 0.7rem;">DÙNG THỬ</button>
+                                    <a href="./product.html" class="btn btn-light btn-sm border fw-bold px-3">CHI TIẾT</a>
+                                    <button class="btn btn-cyan btn-sm fw-bold px-3">DÙNG THỬ</button>
                                 </div>
                             </div>
                         </div>
