@@ -157,3 +157,31 @@ window.addEventListener("scroll", function () {
     navbar.style.padding = "20px 0";
   }
 });
+
+// phaanf PHorduct
+
+function changeImage(element) {
+  // Lấy ID mainImage
+  const mainImg = document.getElementById("mainImage");
+  mainImg.src = element.src;
+
+  mainImg.style.opacity = "0";
+  setTimeout(() => {
+    mainImg.style.opacity = "1";
+  }, 50);
+
+  document.querySelectorAll(".product-thumb").forEach((thumb) => {
+    thumb.classList.remove("active");
+  });
+  element.classList.add("active");
+}
+
+//  Scroll Navbar
+window.onscroll = function () {
+  const nav = document.querySelector(".navbar");
+  if (window.scrollY > 50) {
+    nav.classList.add("bg-white", "shadow");
+  } else {
+    nav.classList.remove("shadow");
+  }
+};
