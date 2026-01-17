@@ -84,12 +84,12 @@ const ratingContainer = document.getElementById("rating-filters");
 
 AOS.init({ duration: 1000, once: false, mirror: true });
 
-// 2. Màn hình chờ
+// Màn hình chờ
 window.onload = () => {
   document.getElementById("loader").style.display = "none";
 };
 
-// 3. Con trỏ chuột tùy chỉnh
+//  Con trỏ chuột tùy chỉnh
 const dot = document.getElementById("cursor-dot");
 const outline = document.getElementById("cursor-outline");
 window.addEventListener("mousemove", (e) => {
@@ -101,7 +101,7 @@ window.addEventListener("mousemove", (e) => {
   );
 });
 
-// 4. Thanh tiến trình cuộn
+// Thanh tiến trình cuộn
 window.onscroll = () => {
   let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
   let height =
@@ -111,7 +111,7 @@ window.onscroll = () => {
   document.getElementById("scroll-bar").style.width = scrolled + "%";
 };
 
-// 5. Hiệu ứng Typewriter đơn giản
+// Hiệu ứng Typewriter đơn giản
 const words = ["Website", "Landing Page", "Mobile App", "Thương Hiệu"];
 let i = 0;
 let j = 0;
