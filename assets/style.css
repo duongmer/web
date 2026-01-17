@@ -1077,3 +1077,79 @@ contact
   right: 10px;
   z-index: 2;
 }
+
+/* chatboott */
+.chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #0d6efd;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.chat-box {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 320px;
+  max-height: 450px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  display: none;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+.chat-header {
+  background: #0d6efd;
+  color: #fff;
+  padding: 12px;
+  border-radius: 10px 10px 0 0;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-body {
+  padding: 10px;
+  flex: 1;
+  overflow-y: auto;
+  background: #f8f9fa;
+}
+
+.chat-footer {
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.message {
+  margin-bottom: 10px;
+  max-width: 80%;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.message.user {
+  background: #0d6efd;
+  color: #fff;
+  margin-left: auto;
+  text-align: right;
+}
+
+.message.bot {
+  background: #e9ecef;
+  color: #000;
+}

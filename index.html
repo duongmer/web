@@ -471,6 +471,31 @@
             </div>
         </section>
 
+
+        <!-- Nút mở chat -->
+        <div class="chat-toggle" onclick="toggleChat()">
+            <i class="bi bi-chat-dots-fill"></i>
+        </div>
+
+        <!-- Chat box -->
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                Tư vấn khách hàng
+                <i class="bi bi-x-lg" style="cursor:pointer" onclick="toggleChat()"></i>
+            </div>
+
+            <div class="chat-body" id="chatBody">
+                <div class="message bot">Xin chào 👋 Tôi có thể hỗ trợ gì cho bạn?</div>
+            </div>
+
+            <div class="chat-footer">
+                <div class="input-group">
+                    <input type="text" id="chatInput" class="form-control" placeholder="Nhập tin nhắn...">
+                    <button class="btn btn-primary" onclick="sendMessage()">Gửi</button>
+                </div>
+            </div>
+        </div>
+
     <!-- Footer Waves Effect -->
     <div class="bg-light mt-5">
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -510,13 +535,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // 1. Khởi tạo Animation
+        //  tạo aanimation
         AOS.init({ duration: 1000, once: false, mirror: true });
 
-        // 2. Màn hình chờ
+        // Màn hình chờ
         window.onload = () => { document.getElementById('loader').style.display = 'none'; };
 
-        // 3. Con trỏ chuột tùy chỉnh
+        // Con trỏ chuột tùy chỉnh
         const dot = document.getElementById('cursor-dot');
         const outline = document.getElementById('cursor-outline');
         window.addEventListener('mousemove', (e) => {
@@ -524,7 +549,6 @@
             outline.animate({ left: e.clientX + 'px', top: e.clientY + 'px' }, { duration: 500, fill: "forwards" });
         });
 
-        // 4. Thanh tiến trình cuộn
         window.onscroll = () => {
             let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -532,7 +556,6 @@
             document.getElementById("scroll-bar").style.width = scrolled + "%";
         };
 
-        // 5. Hiệu ứng Typewriter đơn giản
         const words = ["Website", "Landing Page", "Mobile App", "Thương Hiệu"];
         let i = 0; let j = 0; let currentWord = ""; let isDeleting = false;
         function type() {
@@ -547,6 +570,38 @@
             setTimeout(type, isDeleting ? 100 : 200);
         }
         type();
+        function toggleChat() {
+        const chatBox = document.getElementById("chatBox");
+        chatBox.style.display = chatBox.style.display === "none" || chatBox.style.display === "" 
+            ? "flex" 
+            : "none";
+    }
+
+    function sendMessage() {
+        const input = document.getElementById("chatInput");
+        const message = input.value.trim();
+        if (message === "") return;
+
+        const chatBody = document.getElementById("chatBody");
+
+        // Tin nhắn người dùng
+        const userMsg = document.createElement("div");
+        userMsg.className = "message user";
+        userMsg.textContent = message;
+        chatBody.appendChild(userMsg);
+
+        input.value = "";
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+        // Giả lập phản hồi tư vấn
+        setTimeout(() => {
+            const botMsg = document.createElement("div");
+            botMsg.className = "message bot";
+            botMsg.textContent = "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất.";
+            chatBody.appendChild(botMsg);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }, 800);
+    }
     </script>
     <script src="./script.js"></script>
     <script type="module" src="/index.tsx"></script>
